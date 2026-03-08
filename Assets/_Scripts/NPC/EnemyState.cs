@@ -1,5 +1,4 @@
 using Pathfinding;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyState : MonoBehaviour
@@ -46,7 +45,7 @@ public class EnemyState : MonoBehaviour
         }
     }
 
-    protected bool CanSeeTarget()
+    public bool CanSeeTarget()
     {
         if (owner.target == null) return false;
 
@@ -66,4 +65,16 @@ public class EnemyState : MonoBehaviour
     {
         GetComponent<AIPath>().maxSpeed = moveSpeed;
     }
+
+    protected void GoToTarget(Transform target)
+    {
+        Seeker seeker = GetComponent<Seeker>();
+        if (target != null)
+        {
+            Debug.Log("starting Path");
+            seeker.StartPath(transform.position, target.position);
+        }
+    }
+
+
 }

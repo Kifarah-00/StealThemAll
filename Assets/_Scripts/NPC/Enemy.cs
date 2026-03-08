@@ -1,11 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float idleMoveSpeed = 4f;
     EnemyState currentState = null;
-    [SerializeField] EnemyState startingState;
+    public EnemyState startingState;
     public LayerMask obstacleLayer;
     public float detectionRange = 5f;
     public float attackRange = 1.5f;
@@ -64,4 +62,19 @@ public class Enemy : MonoBehaviour
         return GetComponent<ChaseState>();
     }
 
+    [ContextMenu("Set Player as target")]
+    public void MarkPlayerAsTarget()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
+
+
+    //USE THIS FOR PLAYER EVENT
+    void OnPlayerSpottedAtIllegalAction()
+    {
+        if (GetComponent<IdleState>().CanSeeTarget())
+        {
+            MarkPlayerAsTarget();
+        }
+    }
 }

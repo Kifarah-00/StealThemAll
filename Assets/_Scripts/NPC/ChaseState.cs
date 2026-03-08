@@ -1,8 +1,9 @@
-using Pathfinding;
 using UnityEngine;
 
 public class ChaseState : EnemyState
 {
+    [SerializeField] float timeToLeaveState = 3f;
+    float seeTargetTimer = 99;
     public override void StartState(Enemy _owner)
     {
         base.StartState(_owner);
@@ -14,7 +15,8 @@ public class ChaseState : EnemyState
         base.StateBehaviour();
         if (CanSeeTarget())
         {
-            GoToTarget();
+            seeTargetTimer = timeToLeaveState;
+            GoToTarget(owner.target);
 
             if (IsInTargetRange())
             {
@@ -24,8 +26,15 @@ public class ChaseState : EnemyState
         }
         else
         {
-            owner.ChangeState(owner.IdleState());
+
+            if (seeTargetTimer < 0)
+                owner.ChangeState(owner.startingState);
         }
+    }
+
+    void Update()
+    {
+        seeTargetTimer -= Time.deltaTime;
     }
 
     public override void EndState()
@@ -38,13 +47,6 @@ public class ChaseState : EnemyState
         Debug.Log("GAME OVER");
     }
 
-    void GoToTarget()
-    {
-        Seeker seeker = GetComponent<Seeker>();
-        if (owner.target != null)
-        {
-            seeker.StartPath(transform.position, owner.target.position);
-        }
-    }
+
 
 }
