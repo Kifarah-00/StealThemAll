@@ -159,6 +159,7 @@ namespace Pathfinding {
 		/// Returns: True if an update check is progressing (WWW request)
 		/// </summary>
 		static bool CheckForUpdates () {
+			return false;
 			if (updateCheckDownload != null && updateCheckDownload.isDone) {
 				if (!string.IsNullOrEmpty(updateCheckDownload.error)) {
 					Debug.LogWarning("There was an error checking for updates to the A* Pathfinding Project\n" +
@@ -189,7 +190,7 @@ namespace Pathfinding {
 		}
 
 		static void DownloadVersionInfo () {
-			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindObjectOfType(typeof(AstarPath)) as AstarPath;
+			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindFirstObjectByType(typeof(AstarPath)) as AstarPath;
 
 			if (script != null) {
 				script.ConfigureReferencesInternal();
@@ -198,7 +199,7 @@ namespace Pathfinding {
 				}
 			}
 
-			bool mecanim = GameObject.FindObjectOfType(typeof(Animator)) != null;
+			bool mecanim = GameObject.FindFirstObjectByType(typeof(Animator)) != null;
 			string query = updateURL+
 						   "?v="+AstarPath.Version+
 						   "&pro=0"+

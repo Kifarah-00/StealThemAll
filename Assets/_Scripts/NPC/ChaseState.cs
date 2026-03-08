@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class ChaseState : EnemyState
@@ -19,6 +20,11 @@ public class ChaseState : EnemyState
             {
                 AttackTarget();
             }
+
+        }
+        else
+        {
+            owner.ChangeState(owner.IdleState());
         }
     }
 
@@ -29,21 +35,16 @@ public class ChaseState : EnemyState
 
     void AttackTarget()
     {
-
+        Debug.Log("GAME OVER");
     }
 
     void GoToTarget()
     {
-
+        Seeker seeker = GetComponent<Seeker>();
+        if (owner.target != null)
+        {
+            seeker.StartPath(transform.position, owner.target.position);
+        }
     }
 
-    bool CanSeeTarget()
-    {
-        return false;
-    }
-
-    bool IsInTargetRange()
-    {
-        return false;
-    }
 }

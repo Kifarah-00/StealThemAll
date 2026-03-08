@@ -10,10 +10,16 @@ public class IdleState : EnemyState
     public override void StateBehaviour()
     {
         base.StateBehaviour();
+        if (CanSeeTarget())
+        {
+            owner.ChangeState(owner.ChaseState());
+        }
     }
 
     public override void EndState()
     {
         base.EndState();
     }
+
+  
 }

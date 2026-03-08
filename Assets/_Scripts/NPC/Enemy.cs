@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float idleMoveSpeed = 4f;
     EnemyState currentState = null;
     [SerializeField] EnemyState startingState;
-    [SerializeField] float detectionRange = 5f;
+    public LayerMask obstacleLayer;
+    public float detectionRange = 5f;
+    public float attackRange = 1.5f;
 
     public Transform target;
 
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        updateTimer = 0;
         if (startingState != null)
         {
             ChangeState(startingState);
@@ -56,7 +59,7 @@ public class Enemy : MonoBehaviour
         return GetComponent<IdleState>();
     }
 
-    public EnemyState ChaseStatse()
+    public EnemyState ChaseState()
     {
         return GetComponent<ChaseState>();
     }
