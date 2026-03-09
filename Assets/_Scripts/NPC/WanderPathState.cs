@@ -40,7 +40,6 @@ public class WanderPathState : EnemyState
 
     void GoToNextTarget()
     {
-        Debug.Log("Go to target " + currentNode);
         currentTargetPos = pathParent.GetChild(currentNode);
         currentNode++;
 

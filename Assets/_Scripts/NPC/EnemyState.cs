@@ -71,7 +71,6 @@ public class EnemyState : MonoBehaviour
         Seeker seeker = GetComponent<Seeker>();
         if (target != null)
         {
-            Debug.Log("starting Path");
             seeker.StartPath(transform.position, target.position);
         }
     }

@@ -84,12 +84,22 @@ public class Enemy : MonoBehaviour
     {
         if (newState == GameState.Paused)
         {
-            GetComponent<AIPath>().maxSpeed = 0;
+            StopMovement();
         }
 
         else if (newState == GameState.InGame)
         {
-            GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
+            StartMovement();
         }
+    }
+
+    public void StopMovement()
+    {
+        GetComponent<AIPath>().maxSpeed = 0;
+    }
+
+    public void StartMovement()
+    {
+        GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
     }
 }

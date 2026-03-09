@@ -4,15 +4,20 @@ public class ChaseState : EnemyState
 {
     [SerializeField] float timeToLeaveState = 3f;
     float seeTargetTimer = 99;
+    float attackTimer = 80085;
+    float recoverAfterAttack = 3;
     public override void StartState(Enemy _owner)
     {
         base.StartState(_owner);
-
+        attackTimer = 0;
     }
 
     public override void StateBehaviour()
     {
         base.StateBehaviour();
+        if (attackTimer <= 0)
+            owner.StartMovement();
+
         if (CanSeeTarget())
         {
             seeTargetTimer = timeToLeaveState;
@@ -20,7 +25,8 @@ public class ChaseState : EnemyState
 
             if (IsInTargetRange())
             {
-                AttackTarget();
+                if (attackTimer <= 0)
+                    AttackTarget();
             }
 
         }
@@ -35,6 +41,7 @@ public class ChaseState : EnemyState
     void Update()
     {
         seeTargetTimer -= Time.deltaTime;
+        attackTimer -= Time.deltaTime;
     }
 
     public override void EndState()
@@ -44,8 +51,15 @@ public class ChaseState : EnemyState
 
     void AttackTarget()
     {
-        Debug.Log("GAME OVER");
+        FindFirstObjectByType<EscapeHandler>().StartQTE();
+        attackTimer = recoverAfterAttack;
+
+        owner.StopMovement();
+
+        
     }
+
+   
 
 
 
