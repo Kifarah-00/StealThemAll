@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 159471806}
   - component: {fileID: 159471808}
   - component: {fileID: 159471811}
-  - component: {fileID: 159471812}
   - component: {fileID: 159471814}
   m_Layer: 0
   m_Name: TestPlayer
@@ -569,14 +568,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!222 &159471812
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159471805}
-  m_CullTransparentMesh: 1
 --- !u!61 &159471814
 BoxCollider2D:
   m_ObjectHideFlags: 0
