@@ -1,5 +1,6 @@
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float timeToUpdate = 0.2f;
     float updateTimer = 99;
+
+    public float viewAngle = 90f;
 
 
     void Start()
@@ -52,6 +55,19 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.coral;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        
+        Gizmos.color = Color.yellow;
+
+        Vector3 lookDir = transform.up;
+
+        Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * lookDir;
+        Vector3 rightBoundary = Quaternion.Euler(0, 0, -viewAngle * 0.5f) * lookDir;
+
+        Gizmos.DrawRay(transform.position, leftBoundary * detectionRange);
+        Gizmos.DrawRay(transform.position, rightBoundary * detectionRange);
+
+    
     }
 
     public EnemyState IdleState()
@@ -64,34 +80,35 @@ public class Enemy : MonoBehaviour
         return GetComponent<ChaseState>();
     }
 
-    [ContextMenu("Set Player as target")]
-    public void MarkPlayerAsTarget()
+    
+    void MarkPlayerAsTarget()
     {
         target = GameObject.FindWithTag("Player").transform;
     }
 
 
     //USE THIS FOR PLAYER EVENT
-    void OnPlayerSpottedAtIllegalAction()
+    [ContextMenu("PLAYER PICK UP SIMULATIOn")]
+    public void OnPlayerDoesIllegalAction()
     {
-        if (GetComponent<IdleState>().CanSeeTarget())
+        if (GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform))
         {
             MarkPlayerAsTarget();
         }
     }
 
-    void OnChangeGameState(GameState oldState, GameState newState)
-    {
-        if (newState == GameState.Paused)
-        {
-            StopMovement();
-        }
+    // void OnChangeGameState(GameState oldState, GameState newState)
+    // {
+    //     if (newState == GameState.Paused)
+    //     {
+    //         StopMovement();
+    //     }
 
-        else if (newState == GameState.InGame)
-        {
-            StartMovement();
-        }
-    }
+    //     else if (newState == GameState.InGame)
+    //     {
+    //         StartMovement();
+    //     }
+    // }
 
     public void StopMovement()
     {
@@ -102,4 +119,5 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
     }
+
 }

@@ -24,11 +24,11 @@ public class EnemyState : MonoBehaviour
         return;
     }
 
-    protected bool TargetIsInLineOfSight()
+    protected bool TargetIsInLineOfSight(Transform _target)
     {
-        if (owner.target == null) return false;
+        if (_target == null) return false;
 
-        Vector2 direction = (Vector2)owner.target.position - (Vector2)transform.position;
+        Vector2 direction = (Vector2)_target.position - (Vector2)transform.position;
         float distance = direction.magnitude;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, owner.obstacleLayer);
@@ -45,20 +45,31 @@ public class EnemyState : MonoBehaviour
         }
     }
 
-    public bool CanSeeTarget()
+    public bool CanSeeTarget(Transform _target)
     {
-        if (owner.target == null) return false;
+        if (_target) return false;
 
 
-        return Vector3.Distance(transform.position, owner.target.position) < owner.detectionRange && TargetIsInLineOfSight();
+        return Vector3.Distance(transform.position, _target.position) < owner.detectionRange && TargetIsInLineOfSight(_target) && TargetIsInFrontAngle(_target);
     }
 
-    protected bool IsInTargetRange()
+    protected bool TargetIsInFrontAngle(Transform _target)
     {
-        if (owner.target == null) return false;
+        Vector2 directionToTarget = (_target.position - transform.position).normalized;
+
+        Vector2 lookDirection = transform.right;
+
+        float angleToTarget = Vector2.Angle(lookDirection, directionToTarget);
+
+        return angleToTarget < (owner.viewAngle * 0.5f);
+    }
+
+    protected bool IsInTargetRange(Transform _target)
+    {
+        if (_target == null) return false;
 
 
-        return Vector3.Distance(transform.position, owner.target.position) < owner.attackRange;
+        return Vector3.Distance(transform.position, _target.position) < owner.attackRange;
     }
 
     protected void SetSpeed()
@@ -74,6 +85,5 @@ public class EnemyState : MonoBehaviour
             seeker.StartPath(transform.position, target.position);
         }
     }
-
 
 }

@@ -15,15 +15,16 @@ public class ChaseState : EnemyState
     public override void StateBehaviour()
     {
         base.StateBehaviour();
+        if (owner.target == null) return;
         if (attackTimer <= 0)
             owner.StartMovement();
 
-        if (CanSeeTarget())
+        if (CanSeeTarget(owner.target))
         {
             seeTargetTimer = timeToLeaveState;
             GoToTarget(owner.target);
 
-            if (IsInTargetRange())
+            if (IsInTargetRange(owner.target))
             {
                 if (attackTimer <= 0)
                     AttackTarget();
@@ -56,10 +57,10 @@ public class ChaseState : EnemyState
 
         owner.StopMovement();
 
-        
+
     }
 
-   
+
 
 
 
