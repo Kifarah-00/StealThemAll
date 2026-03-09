@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     void ResetCurrentScore()
     {
-
+        
     }
 
     void LoadCorrectMap()
