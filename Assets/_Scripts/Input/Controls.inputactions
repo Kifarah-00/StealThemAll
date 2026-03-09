@@ -30,7 +30,7 @@
                     "id": "7c4838e8-afc7-49e7-b409-b8a5f4c2612a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -46,6 +46,15 @@
                     "name": "QTE",
                     "type": "Button",
                     "id": "fda06244-d21b-4ec1-9e44-a0604a51d4dd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "491b4aca-5d3e-484a-9592-0962a54f3e10",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -123,7 +132,7 @@
                     "name": "",
                     "id": "cf1f7356-8776-4b17-8327-afd8725292d7",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Run",
@@ -171,6 +180,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "QTE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "221f5eb8-942b-4a38-a60e-aa2efda7dd57",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
