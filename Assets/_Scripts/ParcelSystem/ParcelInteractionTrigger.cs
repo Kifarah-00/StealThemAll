@@ -17,11 +17,12 @@ public class ParcelInteractionTrigger : MonoBehaviour
 
     void Awake()
     {
-        controls = new();
+        if (controls == null) controls = new();
     }
 
     void OnEnable()
     {
+        if (controls == null) controls = new();
         controls.Enable();
         controls.Player.Interact.performed += OnPressInteract;
         controls.Player.Interact.canceled += OnReleaseInteract;

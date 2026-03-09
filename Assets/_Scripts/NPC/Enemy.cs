@@ -90,7 +90,8 @@ public class Enemy : MonoBehaviour
     //USE THIS FOR PLAYER EVENT
     [ContextMenu("PLAYER PICK UP SIMULATIOn")]
     public void OnPlayerDoesIllegalAction()
-    {
+    {   
+          Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform +" - " + GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform));
         if (GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform))
         {
             MarkPlayerAsTarget();

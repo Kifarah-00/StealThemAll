@@ -47,21 +47,24 @@ public class EnemyState : MonoBehaviour
 
     public bool CanSeeTarget(Transform _target)
     {
-        if (_target) return false;
+        if (_target == null) return false;
 
-
+        Debug.Log("Angle: " + TargetIsInFrontAngle(_target));
         return Vector3.Distance(transform.position, _target.position) < owner.detectionRange && TargetIsInLineOfSight(_target) && TargetIsInFrontAngle(_target);
     }
 
     protected bool TargetIsInFrontAngle(Transform _target)
     {
+       
         Vector2 directionToTarget = (_target.position - transform.position).normalized;
 
-        Vector2 lookDirection = transform.right;
+        Vector2 lookDirection = transform.up;
 
         float angleToTarget = Vector2.Angle(lookDirection, directionToTarget);
+        bool canSee = angleToTarget < (owner.viewAngle * 0.5f);
 
-        return angleToTarget < (owner.viewAngle * 0.5f);
+       
+        return canSee;
     }
 
     protected bool IsInTargetRange(Transform _target)

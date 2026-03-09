@@ -670,15 +670,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19708585a9da4f4ca95b669cee7ecbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startingState: {fileID: 377792057}
+  startingState: {fileID: 377792055}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128
   detectionRange: 7.55
   attackRange: 1.5
   target: {fileID: 0}
-  timeToUpdate: 0.2
-  viewAngle: 125.6
+  timeToUpdate: 0.1
+  viewAngle: 207.4
 --- !u!114 &377792054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1637,7 @@ Transform:
   m_GameObject: {fileID: 987140032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.72, y: 3.76, z: 0}
+  m_LocalPosition: {x: -0.6, y: 3.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
