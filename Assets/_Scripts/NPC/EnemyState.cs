@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 4f;
+    public float moveSpeed = 4f;
     protected Enemy owner;
 
 

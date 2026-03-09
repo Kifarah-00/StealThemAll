@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+
         updateTimer -= Time.deltaTime;
         if (updateTimer < 0)
         {
@@ -75,6 +77,19 @@ public class Enemy : MonoBehaviour
         if (GetComponent<IdleState>().CanSeeTarget())
         {
             MarkPlayerAsTarget();
+        }
+    }
+
+    void OnChangeGameState(GameState oldState, GameState newState)
+    {
+        if (newState == GameState.Paused)
+        {
+            GetComponent<AIPath>().maxSpeed = 0;
+        }
+
+        else if (newState == GameState.InGame)
+        {
+            GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
         }
     }
 }
