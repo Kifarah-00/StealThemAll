@@ -1,5 +1,6 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class ParcelInteractionTrigger : MonoBehaviour
     bool isInteracting = false;
 
     [SerializeField] Image fillImage;
+
+    public UnityAction OnParcelPicked;
 
     void Awake()
     {
@@ -73,6 +76,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
         if (interactionButtonTimer >= currentParcel.timeToCollect)
         {
             currentParcel.CollectParcel();
+            OnParcelPicked?.Invoke();
             ResetInteractionTimer();
         }
     }
@@ -80,6 +84,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
     void ResetInteractionTimer()
     {
         interactionButtonTimer = 0;
+        isInteracting = false;
         UpdateFillUI(10);
     }
 

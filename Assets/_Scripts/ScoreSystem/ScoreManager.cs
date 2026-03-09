@@ -7,17 +7,17 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this);
         }
+        else
+        {
+            Destroy(this);
+        }
     }
-    
+
     [SerializeField] TMP_Text scoreText;
     public int currentScore = 0;
 
@@ -32,6 +32,11 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += amount;
         UpdateUI();
+    }
+
+    public void ResetScore()
+    {
+        currentScore = 0;
     }
 
     void UpdateUI()

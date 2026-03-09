@@ -1,50 +1,53 @@
 using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] MapSelection mapSelection;
     [SerializeField] string MAPNAME_0 = "map_0", MAPNAME_1 = "map_1", MAPNAME_2 = "map_2";
+    [SerializeField] GameObject creditScreen;
+    [SerializeField] TMP_Text highScoreText;
+
+    private void Start()
+    {
+        ShowHighScore();
+    }
+
+    void ShowHighScore()
+    {
+        if (highScoreText == null) return;
+        highScoreText.text = $"HIGHSCORE: {ScoreManager.HighScore}";
+    }
 
     public void StartGame()
     {
-        ResetCurrentScore();
-        LoadCorrectMap();
+        Debug.Log($"STARTING: {MapSelection.SelectedMap}");
+        // ResetCurrentScore();
+        // LoadCorrectMap();
 
     }
 
     public void ExitGame()
     {
-
+        Application.Quit();
     }
 
-    public void ShowCredits()
+    public void ToggleCreditScreen(bool active)
     {
+        if (creditScreen == null) return;
 
+        creditScreen.SetActive(active);
     }
 
     void ResetCurrentScore()
     {
-        
+        ScoreManager.Instance.ResetScore();
     }
 
     void LoadCorrectMap()
     {
-        switch (MapSelection.SelectedMap)
-        {
-            case 0:
-                SceneManager.LoadScene(MAPNAME_0);
-                break;
-
-            case 1:
-                SceneManager.LoadScene(MAPNAME_0);
-                break;
-
-            case 2:
-                SceneManager.LoadScene(MAPNAME_0);
-                break;
-        }
+        SceneManager.LoadScene(MapSelection.SelectedMap.SCENENAME);
     }
 }

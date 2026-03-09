@@ -35,12 +35,14 @@ public class EnemyState : MonoBehaviour
 
         if (hit.collider == null)
         {
-            Debug.DrawRay(transform.position, direction.normalized * distance, Color.green);
+            Debug.DrawRay(transform.position, direction.normalized * distance, Color.green, 10);
+            Debug.Log("LOS YES");
             return true;
         }
         else
         {
-            Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.red);
+            Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.red, 10);
+            Debug.Log("LOS NO");
             return false;
         }
     }
@@ -49,7 +51,7 @@ public class EnemyState : MonoBehaviour
     {
         if (_target == null) return false;
 
-        Debug.Log("Angle: " + TargetIsInFrontAngle(_target));
+        // Debug.Log("Angle: " + TargetIsInFrontAngle(_target));
         return Vector3.Distance(transform.position, _target.position) < owner.detectionRange && TargetIsInLineOfSight(_target) && TargetIsInFrontAngle(_target);
     }
 

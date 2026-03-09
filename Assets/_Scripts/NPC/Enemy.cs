@@ -25,6 +25,14 @@ public class Enemy : MonoBehaviour
         {
             ChangeState(startingState);
         }
+        if (FindFirstObjectByType<ParcelInteractionTrigger>())
+            FindFirstObjectByType<ParcelInteractionTrigger>().OnParcelPicked += OnPlayerPickUpParcel;
+    }
+
+    void OnDisable()
+    {
+        if (FindFirstObjectByType<ParcelInteractionTrigger>())
+            FindFirstObjectByType<ParcelInteractionTrigger>().OnParcelPicked -= OnPlayerPickUpParcel;
     }
 
     public void ChangeState(EnemyState newState)
@@ -56,7 +64,7 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.coral;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
-        
+
         Gizmos.color = Color.yellow;
 
         Vector3 lookDir = transform.up;
@@ -67,7 +75,7 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawRay(transform.position, leftBoundary * detectionRange);
         Gizmos.DrawRay(transform.position, rightBoundary * detectionRange);
 
-    
+
     }
 
     public EnemyState IdleState()
@@ -80,7 +88,7 @@ public class Enemy : MonoBehaviour
         return GetComponent<ChaseState>();
     }
 
-    
+
     void MarkPlayerAsTarget()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -89,9 +97,9 @@ public class Enemy : MonoBehaviour
 
     //USE THIS FOR PLAYER EVENT
     [ContextMenu("PLAYER PICK UP SIMULATIOn")]
-    public void OnPlayerDoesIllegalAction()
-    {   
-          Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform +" - " + GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform));
+    public void OnPlayerPickUpParcel()
+    {
+        Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform + " - " + GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform));
         if (GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform))
         {
             MarkPlayerAsTarget();

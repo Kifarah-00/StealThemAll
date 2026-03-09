@@ -2,19 +2,15 @@ using UnityEngine;
 
 public class MapSelection : MonoBehaviour
 {
-    public static int SelectedMap = 99;
+    public static Map SelectedMap = null;
 
-    public bool isBlocked = true;
-
-    public void SelectMap(int index)
+    public void SelectMap(Map map)
     {
-        if (isBlocked)
-            SelectedMap = index;
+        if (map.isLocked) return;
+
+        SelectedMap = map;
     }
 
-    
-    public void UnlockMap()
-    {
-        isBlocked = false;
-    }
+
+
 }
