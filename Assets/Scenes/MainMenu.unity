@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Map
   isLocked: 1
-  scoreToUnlock: 9999
+  scoreToUnlock: 99999
   SCENENAME: Map_1
   lockedObject: {fileID: 1187493581}
 --- !u!114 &133926851
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Map
   isLocked: 1
-  scoreToUnlock: 9999
+  scoreToUnlock: 99999
   SCENENAME: Map_2
   lockedObject: {fileID: 634263883}
 --- !u!114 &306231573
