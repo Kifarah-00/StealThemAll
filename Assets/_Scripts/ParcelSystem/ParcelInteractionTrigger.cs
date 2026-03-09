@@ -59,7 +59,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
     void Update()
     {
         if (currentParcel == null) return;
-        if (GameManager.Instance.GameIsPaused()) return;
+        //if (GameManager.Instance.GameIsPaused()) return;
 
         if (!isInteracting)
         {
