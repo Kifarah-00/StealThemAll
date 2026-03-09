@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d2e7243558e23dd41b7da34239f832bc
+guid: 92116254e140a2345a7d3ae16f956971
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8847395309532707783
-    second: Haus_2_0
+      213: -3767872551430423467
+    second: GDW_Test_Character_Sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Haus_2_0
+      name: GDW_Test_Character_Sprite_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 1
-        width: 40
-        height: 62
+        x: 23
+        y: 10
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93488db67dcb73580800000000000000
-      internalID: -8847395309532707783
+      spriteID: 55c7b05a0e3d5bbc0800000000000000
+      internalID: -3767872551430423467
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Haus_2_0: -8847395309532707783
+      GDW_Test_Character_Sprite_0: -3767872551430423467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
