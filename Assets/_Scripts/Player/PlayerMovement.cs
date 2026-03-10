@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerStamina))]
 public class PlayerMovement : MonoBehaviour
-{[Header("Geschwindigkeit")]
+{[Header("Speed")]
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float runSpeed = 9f;
 
@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
         bool canRun = isRunButtonPressed && !playerStamina.IsExhausted && isMoving;
         
         float speed = canRun ? runSpeed : moveSpeed;
+
+        speed *= GetComponent<Weight>().GetSpeedMultiplier();
 
         rb.linearVelocity = moveInput * speed;
     }

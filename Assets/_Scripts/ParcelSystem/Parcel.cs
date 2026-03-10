@@ -13,6 +13,12 @@ public class Parcel : MonoBehaviour
         if(scoreManager == null) return;
 
         scoreManager.ChangeScore(scoreAmount);
+        Weight playerWeight = FindFirstObjectByType<PlayerMovement>().GetComponent<Weight>();
+            
+        if (playerWeight != null)
+        {
+            playerWeight.AddWeight(weight);
+        }
         this.gameObject.SetActive(false);
     }
 }
