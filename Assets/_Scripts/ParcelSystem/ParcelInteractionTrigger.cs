@@ -16,7 +16,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
 
     [SerializeField] Image fillImage;
 
-    public UnityAction OnParcelPicked;
+    public UnityAction onParcelPicked;
 
     void Awake()
     {
@@ -76,7 +76,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
         if (interactionButtonTimer >= currentParcel.timeToCollect)
         {
             currentParcel.CollectParcel();
-            OnParcelPicked?.Invoke();
+            onParcelPicked?.Invoke();
             ResetInteractionTimer();
         }
     }

@@ -8,11 +8,11 @@ public class LevelExit : MonoBehaviour
     [SerializeField] private int scoreToExit = 0;
     public int scoreToUnlock = Map.scoreToUnlock;
 
-    [Header("Szene Navigation")]
+    [Header("Scene Navigation")]
     [SerializeField] private string nextLevelName;     
     [SerializeField] private string mainMenuSceneName = "MainMenu"; 
 
-    [Header("Interaktion distance")]
+    [Header("Interaction distance")]
     [SerializeField] private float interactRange = 2f; 
     [SerializeField] private GameObject exitZone; 
 
@@ -77,13 +77,13 @@ public class LevelExit : MonoBehaviour
         
         if (finalScore >= scoreToUnlock)
         {
-            Debug.Log("✅ Level geschafft! Genug Punkte gesammelt. Lade: " + nextLevelName);
+            Debug.Log("✅ Level completed! Enough points collected. Loading: " + nextLevelName);
             if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
             SceneManager.LoadScene(nextLevelName);
         }
         else
         {
-            Debug.Log("⛔ Nicht genug Punkte! Zurück zum Hauptmenü...");
+            Debug.Log("⛔ Not enough points! Back to main menu...");
             if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
             SceneManager.LoadScene(mainMenuSceneName);
         }

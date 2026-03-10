@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class Weight : MonoBehaviour
-{[Header("Gewichts-Einstellungen")]
-    [SerializeField] private float currentWeight = 0f;[SerializeField] private float maxWeight = 100f; // Ab hier ist der Spieler extrem langsam[Header("Bewegungs-Einfluss")][Tooltip("Wie viel % der Geschwindigkeit bleibt bei vollem Gewicht übrig? (0.3 = 30% Speed)")]
+{[Header("Weight settings")]
+    [SerializeField] private float currentWeight = 0f;[SerializeField] private float maxWeight = 100f;
     [Range(0f, 1f)] 
     [SerializeField] private float minSpeedMultiplier = 0.3f;
     
