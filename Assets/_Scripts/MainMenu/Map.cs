@@ -21,7 +21,13 @@ public class Map : MonoBehaviour
         if (isLocked && lockedObject.activeSelf == false)
         {
             lockedObject.SetActive(true);
+            if (ScoreManager.HighScore >= scoreToUnlock)
+            {
+                UnlockMap();
+                lockedObject.SetActive(false);
+            }
         }
+        
     }
 
 }

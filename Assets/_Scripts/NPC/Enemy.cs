@@ -13,9 +13,9 @@ public class Enemy : MonoBehaviour
     public Transform target;
 
     [SerializeField] float timeToUpdate = 0.2f;
+    [SerializeField] EnemySight sight;
     float updateTimer = 99;
 
-    public float viewAngle = 90f;
 
 
     void Start()
@@ -65,15 +65,6 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
 
-        Gizmos.color = Color.yellow;
-
-        Vector3 lookDir = transform.up;
-
-        Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * lookDir;
-        Vector3 rightBoundary = Quaternion.Euler(0, 0, -viewAngle * 0.5f) * lookDir;
-
-        Gizmos.DrawRay(transform.position, leftBoundary * detectionRange);
-        Gizmos.DrawRay(transform.position, rightBoundary * detectionRange);
 
 
     }
@@ -99,8 +90,8 @@ public class Enemy : MonoBehaviour
     [ContextMenu("PLAYER PICK UP SIMULATIOn")]
     public void OnPlayerPickUpParcel()
     {
-        Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform + " - " + GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform));
-        if (GetComponent<IdleState>().CanSeeTarget(GameObject.FindWithTag("Player").transform))
+        // Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform + " - " + currentState.CanSeeTarget(GameObject.FindWithTag("Player").transform));
+        if (sight.CanSeeTarget(GameObject.FindWithTag("Player").transform, this))
         {
             MarkPlayerAsTarget();
         }
@@ -128,5 +119,11 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
     }
+
+    public bool CanSeeTarget(Transform _target)
+    {
+        return sight.CanSeeTarget(_target, this);
+    }
+
 
 }

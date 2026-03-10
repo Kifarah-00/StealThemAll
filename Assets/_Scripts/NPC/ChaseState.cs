@@ -22,7 +22,7 @@ public class ChaseState : EnemyState
         if (attackTimer <= 0)
             owner.StartMovement();
 
-        if (CanSeeTarget(owner.target))
+        if (owner.CanSeeTarget(owner.target))
         {
             seeTargetTimer = timeToLeaveState;
             RotateTowardsTarget();
@@ -51,6 +51,15 @@ public class ChaseState : EnemyState
         // if (owner != null && owner.target != null)
         //     if (CanSeeTarget(owner.target))
         //         RotateTowardsTarget();
+    }
+
+
+    protected bool IsInTargetRange(Transform _target)
+    {
+        if (_target == null) return false;
+
+
+        return Vector3.Distance(transform.position, _target.position) < owner.attackRange;
     }
 
     public override void EndState()

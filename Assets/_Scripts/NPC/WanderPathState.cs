@@ -19,7 +19,7 @@ public class WanderPathState : EnemyState
     public override void StateBehaviour()
     {
         base.StateBehaviour();
-        if (owner.target != null && CanSeeTarget(owner.target))
+        if (owner.target != null && owner.CanSeeTarget(owner.target))
         {
             owner.ChangeState(owner.ChaseState());
         }
