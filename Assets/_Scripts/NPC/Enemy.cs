@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
             ChangeState(startingState);
         }
         if (FindFirstObjectByType<ParcelInteractionTrigger>())
-            FindFirstObjectByType<ParcelInteractionTrigger>().OnParcelPicked += OnPlayerPickUpParcel;
+            FindFirstObjectByType<ParcelInteractionTrigger>().onParcelPicked += OnPlayerPickUpParcel;
     }
 
     void OnDisable()
     {
         if (FindFirstObjectByType<ParcelInteractionTrigger>())
-            FindFirstObjectByType<ParcelInteractionTrigger>().OnParcelPicked -= OnPlayerPickUpParcel;
+            FindFirstObjectByType<ParcelInteractionTrigger>().onParcelPicked -= OnPlayerPickUpParcel;
     }
 
     public void ChangeState(EnemyState newState)
