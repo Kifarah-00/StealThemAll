@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
     public int currentScore = 0;
 
-    public static int HighScore = 10000;
+    public static int HighScore = 0;
 
     void Start()
     {

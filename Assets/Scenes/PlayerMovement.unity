@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 348965426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.680975, y: 7.3947706, z: -10}
+  m_LocalPosition: {x: -14.832844, y: 7.3947706, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 662595910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.940002, y: 5.48999, z: 0}
+  m_LocalPosition: {x: -13.573816, y: 5.48999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -537,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7028876063215249289, guid: 815c5ce8050e83544966a5ed172b6967, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.443818
+      value: -13.07
       objectReference: {fileID: 0}
     - target: {fileID: 7028876063215249289, guid: 815c5ce8050e83544966a5ed172b6967, type: 3}
       propertyPath: m_LocalPosition.y
@@ -590,7 +590,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1918497154}
   - component: {fileID: 1918497155}
-  m_Layer: 0
+  - component: {fileID: 1918497156}
+  - component: {fileID: 1918497157}
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 1918497153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1213.8739, y: -470.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -661,7 +663,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6e9acd954ef54d74c9fa47697f126a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -669,8 +671,71 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1918497156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918497153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e332d3e945461b45bfb19afd2a6f41e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelExit
+  scoreToExit: 0
+  nextLevelName: Map_0
+  mainMenuSceneName: MainMenu
+  interactRange: 0.8
+  exitZone: {fileID: 0}
+--- !u!61 &1918497157
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918497153}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.06215477, y: -0.0804081}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5861149, y: 1.0527887}
+  m_EdgeRadius: 0
 --- !u!1001 &4429452004724845921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,6 +825,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1984520467399141341, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
+      propertyPath: playerStamina
+      value: 
+      objectReference: {fileID: 6414155709085670274}
+    - target: {fileID: 1984520467399141341, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 159471806}
@@ -788,13 +857,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3365377476411054727, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365377476411054727, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365377476411054727, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454848539274543412, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 5e332d3e945461b45bfb19afd2a6f41e, type: 3}
     - target: {fileID: 6639759247007961069, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6639759247007961069, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8396037876956776891, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.934
+      value: -14.579819
       objectReference: {fileID: 0}
     - target: {fileID: 8396037876956776891, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_LocalPosition.y
@@ -838,14 +927,25 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6639759247007961069, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6414155709085670273}
+      addedObject: {fileID: 6414155709085670275}
   m_SourcePrefab: {fileID: 100100000, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
 --- !u!1 &6414155709085670272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6639759247007961069, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
   m_PrefabInstance: {fileID: 6414155709085670271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6414155709085670273
+--- !u!114 &6414155709085670274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2046436914798477546, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+  m_PrefabInstance: {fileID: 6414155709085670271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414155709085670272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081e37b3e27d4004985d4e62749ed3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
+--- !u!114 &6414155709085670275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -854,13 +954,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6414155709085670272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e332d3e945461b45bfb19afd2a6f41e, type: 3}
+  m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  scoreToExit: 0
-  nextLevelName: 
-  mainMenuSceneName: MainMenu
-  exitZone: {fileID: 0}
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.MultiplayerEventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+  m_PlayerRoot: {fileID: 0}
 --- !u!1001 &8498027490025253157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,7 +975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1213329098488488924, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 472.80096
+      value: 476.39
       objectReference: {fileID: 0}
     - target: {fileID: 1213329098488488924, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -913,43 +1013,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitZone
       objectReference: {fileID: 0}
+    - target: {fileID: 3087676870330931694, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1213329098488488924, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1918497154}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3087676870330931694, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8498027490025253160}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
---- !u!1 &8498027490025253158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3087676870330931694, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
-  m_PrefabInstance: {fileID: 8498027490025253157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8498027490025253159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1213329098488488924, guid: 66c78db5a47251e419a808733fbcf24d, type: 3}
   m_PrefabInstance: {fileID: 8498027490025253157}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8498027490025253160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8498027490025253158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e332d3e945461b45bfb19afd2a6f41e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  scoreToExit: 0
-  nextLevelName: 
-  mainMenuSceneName: MainMenu
-  exitZone: {fileID: 8498027490025253158}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

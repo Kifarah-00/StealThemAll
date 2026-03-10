@@ -1,47 +1,97 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class LevelExit : MonoBehaviour
 {
     [Header("Conditions")]
-    [SerializeField] private int scoreToExit = 0; 
+    [SerializeField] private int scoreToExit = 0;
+    public int scoreToUnlock = Map.scoreToUnlock;
 
     [Header("Szene Navigation")]
     [SerializeField] private string nextLevelName;     
     [SerializeField] private string mainMenuSceneName = "MainMenu"; 
-    [SerializeField] private GameObject exitZone;
 
+    [Header("Interaktion distance")]
+    [SerializeField] private float interactRange = 2f; 
+    [SerializeField] private GameObject exitZone; 
+
+    private Transform playerTransform;
     private bool isExiting = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Start()
     {
-        if (other.CompareTag("Player") && !isExiting)
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
         {
-            isExiting = true;
-            HandleLevelExit();
+            playerTransform = playerObj.transform;
+        }
+    }
+
+    void Update()
+    {
+        if (playerTransform == null || isExiting) return;
+
+        float distance = Vector2.Distance(transform.position, playerTransform.position);
+        bool isPlayerInRange = distance <= interactRange;
+
+        if (exitZone != null)
+        {
+            exitZone.SetActive(isPlayerInRange);
+        }
+
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (isPlayerInRange)
+            {
+                if (ScoreManager.Instance != null)
+                {
+                    int currentScore = ScoreManager.Instance.currentScore;
+                    Debug.Log("🚪 E gedrückt! Dein aktueller Score: " + currentScore + " | Benötigt: " + scoreToExit);
+                }
+                else
+                {
+                    Debug.LogWarning("⚠️ Kein ScoreManager gefunden!");
+                }
+                // ------------------------------------------
+
+                isExiting = true;
+                HandleLevelExit();
+            }
+            else
+            {
+                Debug.Log("❌ E gedrückt, aber du bist zu weit weg! (Distanz: " + distance + ")");
+            }
         }
     }
 
     private void HandleLevelExit()
     {
-        if (ScoreManager.Instance != null)
+        if (ScoreManager.Instance == null)
         {
-            int finalScore = ScoreManager.Instance.currentScore;
-
-            if (finalScore >= scoreToExit)
-            {
-                if (finalScore > ScoreManager.HighScore)
-                {
-                    ScoreManager.HighScore = finalScore;
-                }
-                
-                Debug.Log("Highscore is: " + ScoreManager.HighScore);
-            }
-            else
-            {
-                if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
-                SceneManager.LoadScene(mainMenuSceneName);
-            }
+            SceneManager.LoadScene(mainMenuSceneName);
+            return;
         }
+
+        int finalScore = ScoreManager.Instance.currentScore;
+        
+        if (finalScore >= scoreToUnlock)
+        {
+            Debug.Log("✅ Level geschafft! Genug Punkte gesammelt. Lade: " + nextLevelName);
+            if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
+            SceneManager.LoadScene(nextLevelName);
+        }
+        else
+        {
+            Debug.Log("⛔ Nicht genug Punkte! Zurück zum Hauptmenü...");
+            if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
+            SceneManager.LoadScene(mainMenuSceneName);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }

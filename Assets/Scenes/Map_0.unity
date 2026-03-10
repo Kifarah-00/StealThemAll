@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1984520467399141341, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
+      propertyPath: playerStamina
+      value: 
+      objectReference: {fileID: 1744616750}
     - target: {fileID: 5094341470462110427, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1673,6 +1677,17 @@ Transform:
   - {fileID: 1551362521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1744616750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2046436914798477546, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+  m_PrefabInstance: {fileID: 1126823127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081e37b3e27d4004985d4e62749ed3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
 --- !u!1001 &2014643522
 PrefabInstance:
   m_ObjectHideFlags: 0

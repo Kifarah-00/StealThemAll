@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class StaminaBarUI : MonoBehaviour
 {
-    [SerializeField] private Slider staminaSlider;      
-    [SerializeField] private PlayerMovement playerMovement; 
+    [SerializeField] private Slider staminaSlider;
+    [SerializeField] private PlayerStamina playerStamina;
     
     private CanvasGroup canvasGroup;
 
@@ -22,9 +22,9 @@ public class StaminaBarUI : MonoBehaviour
 
     void Update()
     {
-        if (playerMovement == null || staminaSlider == null) return;
-
-        float staminaPercent = playerMovement.GetStaminaPercent();
+        if (playerStamina == null || staminaSlider == null) return;
+        
+        float staminaPercent = playerStamina.GetStaminaPercent();
         staminaSlider.value = staminaPercent;
         
         if (staminaPercent >= 0.99f)

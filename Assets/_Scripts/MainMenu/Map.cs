@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Map : MonoBehaviour
 {
     public bool isLocked = false;
-    public int scoreToUnlock = 9999;
+    public static int scoreToUnlock = 9999;
 
     public string SCENENAME = "Map_0";
 

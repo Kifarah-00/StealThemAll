@@ -1,34 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerStamina))]
 public class PlayerMovement : MonoBehaviour
-{
-    [Header("Geschwindigkeit")]
+{[Header("Geschwindigkeit")]
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float runSpeed = 9f;
 
-    [Header("Ausdauer Einstellungen")]
-    [SerializeField] float maxStamina = 100f;
-    [SerializeField] float staminaDrain = 30f;
-    [SerializeField] float staminaRegen = 20f;
-    [SerializeField] float minStaminaToRun = 20f;
-
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private PlayerStamina playerStamina;
     
-    private float currentStamina;
+    private Vector2 moveInput;
     private bool isRunButtonPressed;
-    private bool isExhausted;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentStamina = maxStamina; 
+        playerStamina = GetComponent<PlayerStamina>();
     }
 
     void Update()
     {
-        HandleStamina();
+        bool isMoving = moveInput.sqrMagnitude > 0.01f;
+        
+        playerStamina.UpdateStamina(isRunButtonPressed, isMoving);
     }
 
     void FixedUpdate()
@@ -36,44 +32,15 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    void HandleStamina()
+    void MovePlayer()
     {
         bool isMoving = moveInput.sqrMagnitude > 0.01f;
         
-        bool isActuallyRunning = isRunButtonPressed && isMoving && !isExhausted;
-
-        if (isActuallyRunning)
-        {
-            currentStamina -= staminaDrain * Time.deltaTime;
-            if (currentStamina <= 0)
-            {
-                currentStamina = 0;
-                isExhausted = true; 
-            }
-        }
-        else
-        {
-            currentStamina += staminaRegen * Time.deltaTime;
-            if (currentStamina > maxStamina) currentStamina = maxStamina;
-            
-            if (isExhausted && currentStamina >= minStaminaToRun)
-            {
-                isExhausted = false;
-            }
-        }
-    }
-
-    void MovePlayer()
-    {
-        bool canRun = isRunButtonPressed && !isExhausted && moveInput.sqrMagnitude > 0.01f;
+        bool canRun = isRunButtonPressed && !playerStamina.IsExhausted && isMoving;
+        
         float speed = canRun ? runSpeed : moveSpeed;
 
         rb.linearVelocity = moveInput * speed;
-    }
-    
-    public float GetStaminaPercent()
-    {
-        return currentStamina / maxStamina;
     }
     
     public void Move(InputAction.CallbackContext context)
