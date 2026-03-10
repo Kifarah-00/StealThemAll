@@ -44,5 +44,11 @@ TagManager:
   - name: Buildings
     uniqueID: 1174438287
     locked: 0
+  - name: Character
+    uniqueID: 1870177069
+    locked: 0
+  - name: TOP
+    uniqueID: 2576185135
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -274,7 +274,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3454848539274543412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0054026544, y: 0.022971023}
+  m_Offset: {x: 0.039942786, y: 0.09205055}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -409,7 +409,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 1
-  m_Size: {x: 0.056896202, y: 0.23631048}
+  m_Size: {x: 0.12597647, y: 0.567894}
   m_EdgeRadius: 0
 --- !u!114 &2046436914798477546
 MonoBehaviour:
@@ -806,6 +806,10 @@ PrefabInstance:
     - target: {fileID: 5462017512084653946, guid: cb0239da6031c2b479a491b9997b83d2, type: 3}
       propertyPath: m_Name
       value: InteractionTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716141049205263044, guid: cb0239da6031c2b479a491b9997b83d2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1718782161
       objectReference: {fileID: 0}
     - target: {fileID: 7048559925273065407, guid: cb0239da6031c2b479a491b9997b83d2, type: 3}
       propertyPath: m_Size.x

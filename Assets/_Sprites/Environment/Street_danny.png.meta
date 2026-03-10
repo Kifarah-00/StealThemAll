@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d753bb293e08ed5408c0b253c29ad435
+guid: 5fdf42739cf69f7448d4fc5c3ae74c3a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3380035376243185207
-    second: GDW_Enemy_Charakter_0
+      213: -675255017367836557
+    second: Street_danny_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,23 +126,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GDW_Enemy_Charakter_0
+      name: Street_danny_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 13
-        width: 22
-        height: 47
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7369a39344c48ee20800000000000000
-      internalID: 3380035376243185207
+      spriteID: 3786dfca32301a6f0800000000000000
+      internalID: -675255017367836557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Street_danny_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbce7cb07c237454ea759a72605c3a4e
+      internalID: -1126114610
       vertices: []
       indices: 
       edges: []
@@ -138,7 +173,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: ad08c5594224b1b4e84e8d91b349d88b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +183,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GDW_Enemy_Charakter_0: 3380035376243185207
+      Street_danny_0: -675255017367836557
+      Street_danny_1: -1126114610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

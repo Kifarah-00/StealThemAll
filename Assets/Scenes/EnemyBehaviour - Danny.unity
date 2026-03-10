@@ -1622,10 +1622,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4347546367214102879, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347546367214102879, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347546367214102879, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347546367214102879, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347546367214102879, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162703545592757692, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5226491929599565017, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
       propertyPath: pathParent
       value: 
       objectReference: {fileID: 1117605074}
+    - target: {fileID: 7255149758279867302, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
+      propertyPath: m_Name
+      value: Render
+      objectReference: {fileID: 0}
     - target: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.68
