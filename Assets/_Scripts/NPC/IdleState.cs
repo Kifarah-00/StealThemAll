@@ -5,9 +5,6 @@ public class IdleState : EnemyState
     [SerializeField] float minTimeToTurn = 2, maxTimeToTurn = 10;
     float turnTimer = 99;
 
-    Vector2[] possibleLookDirections = { Vector2.left, Vector2.down, Vector2.right, Vector2.up };
-    Vector2 currentLookDirection = Vector2.up;
-
     bool turnTrigger = false;
 
     public override void StartState(Enemy _owner)
@@ -21,7 +18,9 @@ public class IdleState : EnemyState
         base.StateBehaviour();
         if (turnTrigger)
         {
-            transform.right = currentLookDirection;
+            //FLIP SIGHT    
+            owner.FlipSprite(!GetComponentInChildren<SpriteRenderer>().flipX);
+
             turnTrigger = false;
         }
 
@@ -42,7 +41,6 @@ public class IdleState : EnemyState
 
         if (turnTimer <= 0)
         {
-            currentLookDirection = possibleLookDirections[Random.Range(0, possibleLookDirections.Length)]; // TURN IN RANDOM DIRECTIon
             ResetTurnTimer();
             turnTrigger = true;
         }

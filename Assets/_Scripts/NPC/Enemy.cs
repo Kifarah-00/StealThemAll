@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float timeToUpdate = 0.2f;
     [SerializeField] EnemySight sight;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Animator anim;
     float updateTimer = 99;
 
 
@@ -55,6 +57,8 @@ public class Enemy : MonoBehaviour
                 currentState.StateBehaviour();
             }
 
+            FlipSprite();
+
             updateTimer = timeToUpdate;
         }
     }
@@ -63,9 +67,6 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.coral;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
-
-
-
 
     }
 
@@ -110,6 +111,59 @@ public class Enemy : MonoBehaviour
     //     }
     // }
 
+    void FlipSprite()
+    {
+        Vector2 direction = GetComponent<AIPath>().desiredVelocity;
+
+        Debug.Log($"DIRECTION: {direction} ");
+        if (direction.x < 0)
+        {
+            spriteRenderer.flipX = true;
+            FlipSight(rightSide: false);
+        }
+        else if (direction.x > 0)
+        {
+            spriteRenderer.flipX = false;
+            FlipSight(rightSide: true);
+        }
+
+        if (direction != Vector2.zero)
+        {
+            anim.SetBool("IsMoving", true);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
+        }
+    }
+
+    public void FlipSprite(bool rightSide)
+    {
+
+        if (rightSide)
+        {
+            spriteRenderer.flipX = true;
+            FlipSight(rightSide: false);
+        }
+        else if (!rightSide)
+        {
+            spriteRenderer.flipX = false;
+            FlipSight(rightSide: true);
+        }
+    }
+
+    void FlipSight(bool rightSide)
+    {
+        if (rightSide)
+        {
+
+            GetComponentInChildren<EnemySight>().transform.up = Vector2.right;
+        }
+        else
+        {
+            GetComponentInChildren<EnemySight>().transform.up = Vector2.left;
+        }
+    }
     public void StopMovement()
     {
         GetComponent<AIPath>().maxSpeed = 0;
