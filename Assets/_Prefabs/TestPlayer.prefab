@@ -104,6 +104,8 @@ GameObject:
   - component: {fileID: 3365377476411054727}
   - component: {fileID: 3454848539274543412}
   - component: {fileID: 3440774480423461301}
+  - component: {fileID: 2046436914798477546}
+  - component: {fileID: 6040685639730224360}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -143,10 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 3
   runSpeed: 5
-  maxStamina: 100
-  staminaDrain: 25
-  staminaRegen: 15
-  minStaminaToRun: 20
 --- !u!50 &3365377476411054727
 Rigidbody2D:
   serializedVersion: 5
@@ -310,6 +308,37 @@ BoxCollider2D:
   m_AutoTiling: 1
   m_Size: {x: 0.056896202, y: 0.23631048}
   m_EdgeRadius: 0
+--- !u!114 &2046436914798477546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6639759247007961069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081e37b3e27d4004985d4e62749ed3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
+  maxStamina: 100
+  staminaDrain: 30
+  staminaRegen: 20
+  minStaminaToRun: 20
+--- !u!114 &6040685639730224360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6639759247007961069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82810d2474b6cf14cb58253f59a540cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weight
+  currentWeight: 0
+  maxWeight: 100
+  minSpeedMultiplier: 0.3
 --- !u!1001 &8269993145602349406
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,12 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class EscapeHandler : MonoBehaviour
 {
-    [SerializeField] InputActionReference qteAction; 
+    [SerializeField] InputActionReference qteAction;
     [SerializeField] float timeToPress = 1f;
     [SerializeField] TMP_Text indicator;
+    [SerializeField] UnityEvent onGameOver; 
+    [SerializeField] UnityEvent onEscapeSuccess;
 
     private string expectedControlName;
     private bool qteStarted = false;
@@ -17,7 +20,7 @@ public class EscapeHandler : MonoBehaviour
     {
         var bindings = qteAction.action.bindings;
         int randomIndex = Random.Range(0, bindings.Count);
- 
+
         expectedControlName = qteAction.action.GetBindingDisplayString(randomIndex);
         
         qteStarted = true;
@@ -41,15 +44,18 @@ public class EscapeHandler : MonoBehaviour
             if (control != null && control.displayName == expectedControlName)
             {
                 Debug.Log("ESCAPE!!");
+                onEscapeSuccess?.Invoke();
+                StopQTE();
+            }
+            if (timer <= 0 || control.displayName != expectedControlName) 
+            {
+                Debug.Log("GameOver");
+                onGameOver?.Invoke();
                 StopQTE();
             }
         }
 
-        if (timer <= 0)
-        {
-            Debug.Log("GameOver");
-            StopQTE();
-        }
+        
     }
 
     void StopQTE()
