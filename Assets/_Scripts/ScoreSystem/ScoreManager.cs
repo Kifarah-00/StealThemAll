@@ -28,6 +28,12 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
+    public static void SetNewHighscore(int newScore)
+    {
+        if (newScore > HighScore)
+            HighScore = newScore;
+    }
+
     public void ChangeScore(int amount)
     {
         currentScore += amount;

@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject creditScreen;
     [SerializeField] TMP_Text highScoreText;
 
+
     private void Start()
     {
         ShowHighScore();
@@ -24,6 +25,14 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log($"STARTING: {MapSelection.SelectedMap}");
+        if (MapSelection.SelectedMap != null)
+        {
+            LoadCorrectMap();
+        }
+        else
+        {
+            Debug.LogWarning("No Map Selected!");
+        }
         // ResetCurrentScore();
         // LoadCorrectMap();
 

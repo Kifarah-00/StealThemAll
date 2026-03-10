@@ -56,7 +56,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   detectionRange: 7.55
-  attackRange: 1.5
+  attackRange: 0.5
   target: {fileID: 0}
   timeToUpdate: 0.1
   sight: {fileID: 2484046130007914935}
@@ -322,7 +322,7 @@ Animator:
   m_GameObject: {fileID: 7255149758279867302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 56732db23ae83e24fafa6ed8afd114fc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 31c8295e894ec104285e3682b42f5148, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
