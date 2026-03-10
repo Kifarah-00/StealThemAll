@@ -1173,6 +1173,10 @@ PrefabInstance:
       propertyPath: timeToPress
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8654507964757315009, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1744616755}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1919,6 +1923,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081e37b3e27d4004985d4e62749ed3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
+--- !u!114 &1744616755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9017704568642737128, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+  m_PrefabInstance: {fileID: 1126823127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6baf08e6fb7919b40ab350fa98bb1f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1001 &2014643522
 PrefabInstance:
   m_ObjectHideFlags: 0
