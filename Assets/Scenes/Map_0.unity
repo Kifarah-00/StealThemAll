@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -38.01
       objectReference: {fileID: 0}
+    - target: {fileID: 8640163602717165163, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8681089255298100685, guid: 0dca0277ad1f11146990860340da8fa9, type: 3}
       propertyPath: m_Name
       value: Canvas Stamina
@@ -1892,7 +1896,7 @@ SceneRoots:
   - {fileID: 362372486}
   - {fileID: 973211218}
   - {fileID: 1721970020}
-  - {fileID: 497133685}
   - {fileID: 41296072}
   - {fileID: 1604685192}
+  - {fileID: 497133685}
   - {fileID: 1669537629}
