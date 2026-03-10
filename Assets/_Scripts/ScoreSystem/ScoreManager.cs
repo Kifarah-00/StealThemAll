@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -37,6 +37,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         currentScore = 0;
+        UpdateUI();
     }
 
     void UpdateUI()
