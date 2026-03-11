@@ -42,7 +42,22 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
+    
+    private void OnValidate()
+    {
+        // Diese Methode wird NUR im Unity-Editor aufgerufen, 
+        // wenn du einen Wert im Inspector änderst!
+        if (sounds == null) return;
 
+        foreach (AudioSound s in sounds)
+        {
+            if (s.source != null)
+            {
+                s.source.volume = s.volume;
+                s.source.pitch = s.pitch;
+            }
+        }
+    }
     public void Stop(string name)
     {
         AudioSound s = Array.Find(sounds, sound => sound.name == name);
