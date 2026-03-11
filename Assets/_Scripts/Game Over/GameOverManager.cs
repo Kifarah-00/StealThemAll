@@ -48,12 +48,14 @@ public class GameOverManager : MonoBehaviour
     
     public void MainMenu()
     {
+        ScoreManager.Instance.ResetScore();
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void QuitGame()
     {
+        ScoreManager.Instance.ResetScore();
         Application.Quit();
         Debug.Log("Game finished");
     }

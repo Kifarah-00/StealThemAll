@@ -106,6 +106,7 @@ public class LevelExit : MonoBehaviour
         }
         else
         {
+            ScoreManager.Instance.ResetScore();
             SceneManager.LoadScene(0);
         }
 
