@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStamina))]
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] Animator anim;
     [SerializeField] SpriteRenderer render;
 
     [Header("Speed")]
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float runSpeed = 9f;
+
+    [Header("Audio")]
+    [SerializeField] private string runSoundName = "RunSound";
+    private bool isCurrentlyRunning = false;
 
     private Rigidbody2D rb;
     private PlayerStamina playerStamina;
@@ -48,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!canMove) return;
         MovePlayer();
+        HandleRunAudio(); // Audio-Zustandsprüfung
     }
 
     void MovePlayer()
@@ -62,8 +66,26 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
 
         FlipRender();
-
         SetAnimation();
+    }
+
+    void HandleRunAudio()
+    {
+        bool isMoving = moveInput.sqrMagnitude > 0.01f;
+        bool canRun = isRunButtonPressed && !playerStamina.IsExhausted && isMoving;
+
+        // Sound starten, wenn der Renn-Zustand beginnt
+        if (canRun && !isCurrentlyRunning)
+        {
+            isCurrentlyRunning = true;
+            if (AudioManager.instance != null) AudioManager.instance.Play(runSoundName);
+        }
+        // Sound stoppen, wenn wir aufhören zu rennen
+        else if (!canRun && isCurrentlyRunning)
+        {
+            isCurrentlyRunning = false;
+            if (AudioManager.instance != null) AudioManager.instance.Stop(runSoundName);
+        }
     }
 
     void FlipRender()
