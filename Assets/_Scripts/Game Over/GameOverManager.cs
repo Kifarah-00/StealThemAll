@@ -9,6 +9,10 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] private string mainMenuSceneName = "MainMenu"; 
 
+    [Header("Audio Settings")]
+    // Hier den Namen eintragen, der im AudioManager vergeben wurde (z.B. "GameOverSound")
+    [SerializeField] private string gameOverSoundName = "GameOverSound";
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -22,6 +26,14 @@ public class GameOverManager : MonoBehaviour
     public void ShowGameOverScreen()
     {
         gameOverPanel.SetActive(true);
+        
+        // --- SOUND ABSPIELEN ---
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.Play(gameOverSoundName);
+        }
+        // -----------------------
+
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

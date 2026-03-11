@@ -1451,9 +1451,15 @@ MonoBehaviour:
   sounds:
   - name: MenuMusic
     clip: {fileID: 8300000, guid: c71535853b6cd6847b35624931220f05, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: GameOverSound
+    clip: {fileID: 8300000, guid: e4a88036303526641bf7b39d2acd981c, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &862450447
 Transform:
