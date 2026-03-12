@@ -19,6 +19,8 @@ public class Parcel : MonoBehaviour
         {
             playerWeight.AddWeight(weight);
         }
+
+        AudioManager.instance.Play("PickupParcel");
         this.gameObject.SetActive(false);
     }
 }

@@ -8,16 +8,17 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject creditScreen;
     [SerializeField] TMP_Text highScoreText;
 
+
     private void Start()
     {
         ShowHighScore();
         
         // Musik starten
-        if (AudioManager.instance != null)
-        {
-            // WICHTIG: Prüfe im Inspector, ob der Name exakt "MenuMusic" ist!
-            AudioManager.instance.Play("MenuMusic");
-        }
+        // if (AudioManager.instance != null)
+        // {
+        //     // WICHTIG: Prüfe im Inspector, ob der Name exakt "MenuMusic" ist!
+        //     AudioManager.instance.Play("MenuMusic");
+        // }
     }
 
     void ShowHighScore()
