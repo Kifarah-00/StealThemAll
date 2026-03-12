@@ -18,6 +18,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
     [SerializeField] private Slider interactionSlider;
     [SerializeField] private GameObject sliderContainer;
     [SerializeField] GameObject indicator;
+    [SerializeField] Animator anim;
 
     public UnityAction onParcelPicked;
 
@@ -84,6 +85,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
 
         if (interactionButtonTimer >= currentParcel.timeToCollect)
         {
+            anim.SetBool("IsPicking", false);
             currentParcel.CollectParcel();
             onParcelPicked?.Invoke();
             ResetInteractionTimer();
@@ -101,12 +103,14 @@ public class ParcelInteractionTrigger : MonoBehaviour
     {
         if (currentParcel == null) return;
         isInteracting = true;
+        anim.SetBool("IsPicking", true);
     }
 
     void OnReleaseInteract(InputAction.CallbackContext ctx)
     {
         isInteracting = false;
         interactionButtonTimer = 0;
+        anim.SetBool("IsPicking", false);
     }
 
     void UpdateSliderUI(float _pickUpTime)

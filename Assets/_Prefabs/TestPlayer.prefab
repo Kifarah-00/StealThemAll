@@ -858,6 +858,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2771786640693469245, guid: cb0239da6031c2b479a491b9997b83d2, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1123371318126069590}
+    - target: {fileID: 2771786640693469245, guid: cb0239da6031c2b479a491b9997b83d2, type: 3}
       propertyPath: fillImage
       value: 
       objectReference: {fileID: 3543125578093860622}

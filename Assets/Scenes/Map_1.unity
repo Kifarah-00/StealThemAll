@@ -9038,22 +9038,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
   m_PrefabInstance: {fileID: 475033620}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1693230341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 311167194097140614, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
-  m_PrefabInstance: {fileID: 2105473468}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1693230343 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 287791419970275457, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
-  m_PrefabInstance: {fileID: 2105473468}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693230341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!4 &1703052537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
@@ -9946,11 +9930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.12941
+      value: 45.95
       objectReference: {fileID: 0}
     - target: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.38351
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 7534445273630752739, guid: 1c7e2b845518b3f44a69889337c32f72, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11504,14 +11488,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6849433673243931315, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
-      propertyPath: sliderContainer
-      value: 
-      objectReference: {fileID: 1693230341}
-    - target: {fileID: 6849433673243931315, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
-      propertyPath: interactionSlider
-      value: 
-      objectReference: {fileID: 1693230343}
     - target: {fileID: 7659777464894970006, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

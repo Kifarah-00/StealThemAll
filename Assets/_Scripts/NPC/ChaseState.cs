@@ -32,7 +32,7 @@ public class ChaseState : EnemyState
                 {
                     if (player.isDead) return;
                 }
-                
+
                 if (attackTimer <= 0)
                     AttackTarget();
             }
@@ -68,7 +68,7 @@ public class ChaseState : EnemyState
 
     void AttackTarget()
     {
-        owner.PlayAttackAnimation();
+        // owner.PlayAttackAnimation();
         FindFirstObjectByType<EscapeHandler>().StartQTE(this.owner);
         attackTimer = recoverAfterAttack;
 

@@ -87,6 +87,7 @@ public class EscapeHandler : MonoBehaviour
 
     IEnumerator TriggerGameOver()
     {
+        if(attackingEnemy != null) attackingEnemy.PlayAttackAnimation();
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         StopQTE(false);
 

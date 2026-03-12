@@ -334,9 +334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55c3f5f59d3c1144b5294d72ff44c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParcelInteractionTrigger
-  interactionSlider: {fileID: 0}
-  sliderContainer: {fileID: 0}
+  interactionSlider: {fileID: 8829093922535070223}
+  sliderContainer: {fileID: 9018513277777531144}
   indicator: {fileID: 5319092762704667797}
+  anim: {fileID: 0}
 --- !u!1 &5647963577110381466
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,5 +640,21 @@ PrefabInstance:
 --- !u!224 &1384208054175910424 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4579248651812532385, guid: 4f41e827456fbac4b8a3d2672417ba05, type: 3}
+  m_PrefabInstance: {fileID: 3222734032976165561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8829093922535070223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6214489902123868342, guid: 4f41e827456fbac4b8a3d2672417ba05, type: 3}
+  m_PrefabInstance: {fileID: 3222734032976165561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9018513277777531144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &9018513277777531144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5877551060344236977, guid: 4f41e827456fbac4b8a3d2672417ba05, type: 3}
   m_PrefabInstance: {fileID: 3222734032976165561}
   m_PrefabAsset: {fileID: 0}
