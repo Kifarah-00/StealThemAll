@@ -1,7 +1,10 @@
+using System;
+using System.Threading;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class EscapeHandler : MonoBehaviour
 {

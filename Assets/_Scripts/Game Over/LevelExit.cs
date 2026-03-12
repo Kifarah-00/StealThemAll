@@ -106,6 +106,7 @@ public class LevelExit : MonoBehaviour
             AudioManager.instance.Play("GameWon");
             ScoreManager.Instance.ResetScore();
             SceneManager.LoadScene(0);
+            AudioManager.instance.Stop("RunSound");
         }
 
 

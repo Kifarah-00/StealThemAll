@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStamina))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
     [SerializeField] Animator anim;
     [SerializeField] SpriteRenderer render;
 
@@ -14,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 9f;
 
     [Header("Audio")]
-    [SerializeField] private string runSoundName = "RunSound";
+    [SerializeField] public string runSoundName  = "RunSound";
     private bool isCurrentlyRunning = false;
 
     private Rigidbody2D rb;
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         SetAnimation();
     }
 
-    void HandleRunAudio()
+    public void HandleRunAudio()
     {
         bool isMoving = moveInput.sqrMagnitude > 0.01f;
         bool canRun = isRunButtonPressed && !playerStamina.IsExhausted && isMoving;
