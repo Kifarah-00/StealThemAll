@@ -6,6 +6,8 @@ public class LevelExit : MonoBehaviour
 {
     [Header("Conditions")]
     [SerializeField] private int scoreToExit = 0;
+
+    [SerializeField] GameObject indicator_CanExit, indicator_NoExit;
     // public int scoreToUnlock = Map.scoreToUnlock;
 
     // [Header("Scene Navigation")]
@@ -44,6 +46,18 @@ public class LevelExit : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             playerIsInside = true;
+            int currentScore = ScoreManager.Instance.currentScore;
+
+            if (currentScore < scoreToExit)
+            {
+                indicator_CanExit.SetActive(false);
+                indicator_NoExit.SetActive(true);
+            }
+            else
+            {
+                indicator_CanExit.SetActive(true);
+                indicator_NoExit.SetActive(false);
+            }
         }
     }
 
@@ -52,6 +66,10 @@ public class LevelExit : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             playerIsInside = false;
+
+            indicator_CanExit.SetActive(false);
+            indicator_NoExit.SetActive(false);
+
         }
     }
 

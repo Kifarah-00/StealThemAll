@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e970a485d0e3c0c45baef592339301ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WanderPathState
-  moveSpeed: 4
+  moveSpeed: 1
   pathParent: {fileID: 0}
 --- !u!1 &2472431673419197137
 GameObject:

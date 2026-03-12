@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
     {
         Vector2 direction = GetComponent<AIPath>().desiredVelocity;
 
-        Debug.Log($"DIRECTION: {direction} ");
+        // Debug.Log($"DIRECTION: {direction} ");
         if (direction.x < 0)
         {
             spriteRenderer.flipX = true;
