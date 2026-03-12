@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunButtonPressed;
     private bool canMove = true;
 
+    public bool isDead = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -93,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
     public void PlayCaughtAnimation()
     {
         anim.SetTrigger("PlayerCaught");
+        isDead = true;
     }
 
     void FlipRender()

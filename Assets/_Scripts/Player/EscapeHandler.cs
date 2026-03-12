@@ -88,13 +88,14 @@ public class EscapeHandler : MonoBehaviour
     IEnumerator TriggerGameOver()
     {
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
+        StopQTE(false);
+
         yield return new WaitForSecondsRealtime(3);
 
         if (GameOverManager.Instance != null)
         {
             GameOverManager.Instance.ShowGameOverScreen();
         }
-        StopQTE(false);
     }
 
     public void StopQTE(bool success)

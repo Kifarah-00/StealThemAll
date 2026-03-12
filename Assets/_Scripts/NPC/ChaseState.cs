@@ -28,6 +28,11 @@ public class ChaseState : EnemyState
 
             if (IsInTargetRange(owner.target))
             {
+                if (owner.target.TryGetComponent<PlayerMovement>(out PlayerMovement player))
+                {
+                    if (player.isDead) return;
+                }
+                
                 if (attackTimer <= 0)
                     AttackTarget();
             }
@@ -68,7 +73,7 @@ public class ChaseState : EnemyState
         attackTimer = recoverAfterAttack;
 
         owner.StopMovement();
-        
+
     }
-    
+
 }
