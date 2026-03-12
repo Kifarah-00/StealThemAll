@@ -91,30 +91,9 @@ public class LevelExit : MonoBehaviour
 
     private void HandleLevelExit(InputAction.CallbackContext ctx)
     {
-        // if (ScoreManager.Instance == null)
-        // {
-        //     SceneManager.LoadScene(mainMenuSceneName);
-        //     return;
-        // }
-
-        // int finalScore = ScoreManager.Instance.currentScore;
-
-        // if (finalScore >= scoreToUnlock)
-        // {
-        //     Debug.Log("✅ Level completed! Enough points collected. Loading: " + nextLevelName);
-        //     if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
-        //     SceneManager.LoadScene(nextLevelName);
-        // }
-        // else
-        // {
-        //     Debug.Log("⛔ Not enough points! Back to main menu...");
-        //     if (finalScore > ScoreManager.HighScore) ScoreManager.HighScore = finalScore;
-        //     SceneManager.LoadScene(mainMenuSceneName);
-        // }
         if (!playerIsInside) return;
 
         int currentScore = ScoreManager.Instance.currentScore;
-        Debug.Log("🚪 E gedrückt! Dein aktueller Score: " + currentScore + " | Benötigt: " + scoreToExit);
         ScoreManager.SetNewHighscore(currentScore);
 
 
@@ -124,6 +103,7 @@ public class LevelExit : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.Play("GameWon");
             ScoreManager.Instance.ResetScore();
             SceneManager.LoadScene(0);
         }
@@ -132,9 +112,4 @@ public class LevelExit : MonoBehaviour
 
     }
 
-    // private void OnDrawGizmosSelected()
-    // {
-    //     Gizmos.color = Color.green;
-    //     Gizmos.DrawWireSphere(transform.position, interactRange);
-    // }
 }
