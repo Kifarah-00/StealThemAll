@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 using TMPro;
@@ -8,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class EscapeHandler : MonoBehaviour
 {
+    public static EscapeHandler instance;
+    
     [Header("Referenzen")]
     [SerializeField] PlayerMovement playerMovement; 
     [SerializeField] InputActionReference qteAction;
@@ -60,7 +63,7 @@ public class EscapeHandler : MonoBehaviour
         
         if (timer <= 0)
         {
-            TriggerGameOver();
+            StartCoroutine(TriggerGameOver());
             return;
         }
 
@@ -73,13 +76,16 @@ public class EscapeHandler : MonoBehaviour
             }
             else
             {
-                TriggerGameOver();
+                StartCoroutine(TriggerGameOver());
             }
         }
     }
 
-    void TriggerGameOver()
+    IEnumerator TriggerGameOver()
     {
+        PlayerMovement.instance.PlayCaughtAnimation();
+        yield return new WaitForSecondsRealtime(3);
+        
         if (GameOverManager.Instance != null)
         {
             GameOverManager.Instance.ShowGameOverScreen();
@@ -87,7 +93,7 @@ public class EscapeHandler : MonoBehaviour
         StopQTE(false);
     }
 
-    void StopQTE(bool success)
+    public void StopQTE(bool success)
     {
         qteStarted = false;
         qteAction.action.Disable();

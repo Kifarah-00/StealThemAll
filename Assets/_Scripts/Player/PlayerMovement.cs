@@ -54,8 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) return;
         MovePlayer();
         HandleRunAudio(); // Audio-Zustandsprüfung
-        anim.SetFloat("xVelocity", Math.Abs(rb.linearVelocity.x));
-        anim.SetFloat("yVelocity", Math.Abs(rb.linearVelocity.y));
+        anim.SetFloat("Speed", Math.Abs(rb.linearVelocity.magnitude));
     }
 
     void MovePlayer()
@@ -70,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
 
         FlipRender();
-        SetAnimation();
     }
 
     public void HandleRunAudio()
@@ -92,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void PlayCaughtAnimation()
+    {
+        anim.SetTrigger("PlayerCaught");
+    }
+
     void FlipRender()
     {
         if (rb.linearVelocity.x < 0)
@@ -102,11 +105,6 @@ public class PlayerMovement : MonoBehaviour
         {
             render.flipX = false;
         }
-    }
-
-    void SetAnimation()
-    {
-        anim.SetBool("IsMoving", rb.linearVelocity != Vector2.zero);
     }
 
     public void Move(InputAction.CallbackContext context)
