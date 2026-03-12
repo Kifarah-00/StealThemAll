@@ -10,23 +10,27 @@ using Random = UnityEngine.Random;
 public class EscapeHandler : MonoBehaviour
 {
     public static EscapeHandler instance;
-    
+
     [Header("Referenzen")]
-    [SerializeField] PlayerMovement playerMovement; 
+    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] InputActionReference qteAction;
     [SerializeField] float timeToPress = 1.5f;
 
     [Header("UI")]
     [SerializeField] TMP_Text indicator;
-    [SerializeField] Slider timerSlider; 
+    [SerializeField] Slider timerSlider;
 
     private string expectedControlName;
     private bool qteStarted = false;
     private float timer;
 
+    Enemy attackingEnemy = null;
+
     [ContextMenu("START Escape QTE")]
-    public void StartQTE()
+    public void StartQTE(Enemy attacker)
     {
+        if (attacker != null) attackingEnemy = attacker;
+
         if (qteStarted)
         {
             timer -= 1;
@@ -37,20 +41,20 @@ public class EscapeHandler : MonoBehaviour
         var bindings = qteAction.action.bindings;
         int randomIndex = Random.Range(0, bindings.Count);
         expectedControlName = qteAction.action.GetBindingDisplayString(randomIndex);
-        
+
         qteStarted = true;
         timer = timeToPress;
 
         indicator.text = $"[{expectedControlName}]";
         indicator.gameObject.SetActive(true);
 
-        if (timerSlider != null) 
+        if (timerSlider != null)
         {
             timerSlider.gameObject.SetActive(true);
             timerSlider.maxValue = timeToPress;
             timerSlider.value = timeToPress;
         }
-        
+
         qteAction.action.Enable();
     }
 
@@ -60,7 +64,7 @@ public class EscapeHandler : MonoBehaviour
 
         timer -= Time.deltaTime;
         if (timerSlider != null) timerSlider.value = timer;
-        
+
         if (timer <= 0)
         {
             StartCoroutine(TriggerGameOver());
@@ -83,9 +87,9 @@ public class EscapeHandler : MonoBehaviour
 
     IEnumerator TriggerGameOver()
     {
-        PlayerMovement.instance.PlayCaughtAnimation();
+        FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         yield return new WaitForSecondsRealtime(3);
-        
+
         if (GameOverManager.Instance != null)
         {
             GameOverManager.Instance.ShowGameOverScreen();
@@ -102,6 +106,12 @@ public class EscapeHandler : MonoBehaviour
 
         if (success && playerMovement != null)
         {
+            if (attackingEnemy != null)
+            {
+
+                attackingEnemy.PlayHurtAnimation();
+                attackingEnemy = null;
+            }
             playerMovement.SetMovementEnabled(true);
         }
     }

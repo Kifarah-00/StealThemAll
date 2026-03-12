@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ad7e43353549e0740b0630145976d29b
+guid: dfef86974feb3794da96950a75d2bc7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5711884288677091865
-    second: player_sword_atk_64x65_0
+      213: 2525145024728647370
+    second: Enemy_Hurt_48x48_0
+  - first:
+      213: -774923223814102205
+    second: Enemy_Hurt_48x48_1
+  - first:
+      213: -6315344841289302417
+    second: Enemy_Hurt_48x48_2
+  - first:
+      213: -5341861412946520167
+    second: Enemy_Hurt_48x48_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_sword_atk_64x65_0
+      name: Enemy_Hurt_48x48_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 15
-        width: 37
-        height: 35
+        x: 11
+        y: 7
+        width: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91a9bb86f70b44f40800000000000000
-      internalID: 5711884288677091865
+      spriteID: ac6cb4d650e1b0320800000000000000
+      internalID: 2525145024728647370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Hurt_48x48_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 7
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3432c540f6bee35f0800000000000000
+      internalID: -774923223814102205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Hurt_48x48_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 7
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6efad4b3536b58a0800000000000000
+      internalID: -6315344841289302417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Hurt_48x48_3
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 7
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997d4f9e855edd5b0800000000000000
+      internalID: -5341861412946520167
       vertices: []
       indices: 
       edges: []
@@ -151,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_sword_atk_64x65_0: 5711884288677091865
+      Enemy_Hurt_48x48_0: 2525145024728647370
+      Enemy_Hurt_48x48_1: -774923223814102205
+      Enemy_Hurt_48x48_2: -6315344841289302417
+      Enemy_Hurt_48x48_3: -5341861412946520167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -64,7 +64,7 @@ public class ChaseState : EnemyState
     void AttackTarget()
     {
         owner.PlayAttackAnimation();
-        FindFirstObjectByType<EscapeHandler>().StartQTE();
+        FindFirstObjectByType<EscapeHandler>().StartQTE(this.owner);
         attackTimer = recoverAfterAttack;
 
         owner.StopMovement();
