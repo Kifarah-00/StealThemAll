@@ -67,10 +67,7 @@ public class ChaseState : EnemyState
         attackTimer = recoverAfterAttack;
 
         owner.StopMovement();
-
-
+        
     }
-
-
-
+    
 }

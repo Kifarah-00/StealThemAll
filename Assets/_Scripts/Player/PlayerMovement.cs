@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) return;
         MovePlayer();
         HandleRunAudio(); // Audio-Zustandsprüfung
+        anim.SetFloat("xVelocity", Math.Abs(rb.linearVelocity.x));
+        anim.SetFloat("yVelocity", Math.Abs(rb.linearVelocity.y));
     }
 
     void MovePlayer()
@@ -117,3 +120,4 @@ public class PlayerMovement : MonoBehaviour
         isRunButtonPressed = context.ReadValueAsButton();
     }
 }
+

@@ -16,9 +16,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemySight sight;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator anim;
+    
+    // Referenz zum AIPath für die Geschwindigkeit
+    private AIPath aiPath;
     float updateTimer = 99;
 
-
+    void Awake()
+    {
+        aiPath = GetComponent<AIPath>();
+    }
 
     void Start()
     {
@@ -40,14 +46,14 @@ public class Enemy : MonoBehaviour
     public void ChangeState(EnemyState newState)
     {
         if (currentState != null) currentState.EndState();
-
         currentState = newState;
-
         currentState.StartState(this);
     }
 
     void Update()
     {
+        // Animationen jeden Frame aktualisieren für maximale Flüssigkeit
+        UpdateAnimationParameters();
 
         updateTimer -= Time.deltaTime;
         if (updateTimer < 0)
@@ -58,18 +64,42 @@ public class Enemy : MonoBehaviour
             }
 
             FlipSprite();
-
             updateTimer = timeToUpdate;
         }
     }
 
-    void OnDrawGizmosSelected()
+    void UpdateAnimationParameters()
     {
-        Gizmos.color = Color.coral;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        if (anim == null) return;
 
+        // Geschwindigkeit für den Animator berechnen
+        float currentSpeed = aiPath.velocity.magnitude;
+        
+        // Setze einen Float für "Speed" (gut für Übergänge)
+        anim.SetFloat("Speed", currentSpeed);
+        
+        // Setze den Bool "IsMoving", falls du diesen beibehalten willst
+        anim.SetBool("IsMoving", currentSpeed > 0.1f);
     }
 
+    // Diese Methode kann von deinen EnemyStates (z.B. AttackState) aufgerufen werden
+    public void PlayAttackAnimation()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("Attack");
+        }
+    }
+
+    // Falls der Gegner Schaden nimmt
+    public void PlayHurtAnimation()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("Hurt");
+        }
+    }
+    
     public EnemyState IdleState()
     {
         return GetComponent<IdleState>();
@@ -80,98 +110,46 @@ public class Enemy : MonoBehaviour
         return GetComponent<ChaseState>();
     }
 
-
-    void MarkPlayerAsTarget()
-    {
-        target = GameObject.FindWithTag("Player").transform;
-    }
-
-
-    //USE THIS FOR PLAYER EVENT
-    [ContextMenu("PLAYER PICK UP SIMULATIOn")]
-    public void OnPlayerPickUpParcel()
-    {
-        // Debug.Log("CHECKING ANGLE FOR:  " + GameObject.FindWithTag("Player").transform + " - " + currentState.CanSeeTarget(GameObject.FindWithTag("Player").transform));
-        if (sight.CanSeeTarget(GameObject.FindWithTag("Player").transform, this))
-        {
-            MarkPlayerAsTarget();
-        }
-    }
-
-    // void OnChangeGameState(GameState oldState, GameState newState)
-    // {
-    //     if (newState == GameState.Paused)
-    //     {
-    //         StopMovement();
-    //     }
-
-    //     else if (newState == GameState.InGame)
-    //     {
-    //         StartMovement();
-    //     }
-    // }
-
     void FlipSprite()
     {
-        Vector2 direction = GetComponent<AIPath>().desiredVelocity;
-
-        // Debug.Log($"DIRECTION: {direction} ");
-        if (direction.x < 0)
+        Vector2 direction = aiPath.desiredVelocity;
+        
+        if (direction.x < -0.1f)
         {
             spriteRenderer.flipX = true;
             FlipSight(rightSide: false);
         }
-        else if (direction.x > 0)
+        else if (direction.x > 0.1f)
         {
             spriteRenderer.flipX = false;
             FlipSight(rightSide: true);
-        }
-
-        if (direction != Vector2.zero)
-        {
-            anim.SetBool("IsMoving", true);
-        }
-        else
-        {
-            anim.SetBool("IsMoving", false);
         }
     }
 
+    // Überladene Methode für manuelle Flips aus States heraus
     public void FlipSprite(bool rightSide)
     {
-
-        if (rightSide)
-        {
-            spriteRenderer.flipX = true;
-            FlipSight(rightSide: false);
-        }
-        else if (!rightSide)
-        {
-            spriteRenderer.flipX = false;
-            FlipSight(rightSide: true);
-        }
+        spriteRenderer.flipX = !rightSide; // Da flipX true links bedeutet, wenn das Sprite nach rechts schaut
+        FlipSight(rightSide);
     }
 
     void FlipSight(bool rightSide)
     {
-        if (rightSide)
-        {
-
-            GetComponentInChildren<EnemySight>().transform.up = Vector2.right;
-        }
-        else
-        {
-            GetComponentInChildren<EnemySight>().transform.up = Vector2.left;
-        }
+        if (sight == null) return;
+        sight.transform.up = rightSide ? Vector2.right : Vector2.left;
     }
+
     public void StopMovement()
     {
-        GetComponent<AIPath>().maxSpeed = 0;
+        aiPath.maxSpeed = 0;
+        // Sofort Speed auf 0 setzen für Animation
+        anim.SetFloat("Speed", 0);
     }
 
     public void StartMovement()
     {
-        GetComponent<AIPath>().maxSpeed = currentState.moveSpeed;
+        if(currentState != null)
+            aiPath.maxSpeed = currentState.moveSpeed;
     }
 
     public bool CanSeeTarget(Transform _target)
@@ -179,5 +157,25 @@ public class Enemy : MonoBehaviour
         return sight.CanSeeTarget(_target, this);
     }
 
+    void MarkPlayerAsTarget()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if(player != null) target = player.transform;
+    }
+    
+    [ContextMenu("PLAYER PICK UP SIMULATION")]
+    public void OnPlayerPickUpParcel()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null && sight.CanSeeTarget(player.transform, this))
+        {
+            MarkPlayerAsTarget();
+        }
+    }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.coral;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
 }
