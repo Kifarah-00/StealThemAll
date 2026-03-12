@@ -2936,6 +2936,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8665078658612200532, guid: 6b325ae431a0ea240bdbea12a15869d8, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665078658612200532, guid: 6b325ae431a0ea240bdbea12a15869d8, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 291ec36fd5b159447ab5304ca72f73f4, type: 3}
+    - target: {fileID: 8665078658612200532, guid: 6b325ae431a0ea240bdbea12a15869d8, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: NPCAlarm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665078658612200532, guid: 6b325ae431a0ea240bdbea12a15869d8, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665078658612200532, guid: 6b325ae431a0ea240bdbea12a15869d8, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

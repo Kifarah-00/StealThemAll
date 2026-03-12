@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
 
     void MarkPlayerAsTarget()
     {
+        AudioManager.instance.Play("NPCAlarm");
         target = GameObject.FindWithTag("Player").transform;
     }
 

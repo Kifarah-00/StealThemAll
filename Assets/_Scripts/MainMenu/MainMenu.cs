@@ -31,11 +31,11 @@ public class MainMenu : MonoBehaviour
     {
         if (MapSelection.SelectedMap != null)
         {
-            // Musik aus
-            if (AudioManager.instance != null)
-            {
-                AudioManager.instance.Stop("MenuMusic"); 
-            }
+            // // Musik aus
+            // if (AudioManager.instance != null)
+            // {
+            //     AudioManager.instance.Stop("MenuMusic"); 
+            // }
 
             ResetCurrentScore();
             LoadCorrectMap();
