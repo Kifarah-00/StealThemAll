@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator anim;
     
-    // Referenz zum AIPath für die Geschwindigkeit
     private AIPath aiPath;
     float updateTimer = 99;
 
