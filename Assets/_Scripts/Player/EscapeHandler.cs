@@ -92,6 +92,7 @@ public class EscapeHandler : MonoBehaviour
 
     public void GameOverInstant()
     {
+        AudioManager.instance.Play("GameOverSound");
         StartCoroutine(TriggerGameOver());
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         StopQTE(false);
@@ -107,6 +108,8 @@ public class EscapeHandler : MonoBehaviour
         if (attackingEnemy != null) attackingEnemy.PlayAttackAnimation();
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         StopQTE(false);
+        
+        AudioManager.instance.Play("GameOverSound");
 
         yield return new WaitForSecondsRealtime(2);
 
