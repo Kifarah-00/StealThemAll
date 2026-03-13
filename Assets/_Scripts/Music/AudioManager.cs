@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSound[] sounds;
     public static AudioManager instance;
+    bool mute = false;
+
 
     void Awake()
     {
@@ -32,6 +34,7 @@ public class AudioManager : MonoBehaviour
 
         AudioManager.instance.Play("MenuMusic");
     }
+
 
     public void Play(string name)
     {

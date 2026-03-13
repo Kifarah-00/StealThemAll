@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 9f;
 
     [Header("Audio")]
-    [SerializeField] public string runSoundName  = "RunSound";
+    [SerializeField] public string runSoundName = "RunSound";
     private bool isCurrentlyRunning = false;
 
     private Rigidbody2D rb;
@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
 
     public bool isDead = false;
+
+    public bool isPickingUp = false;
 
     void Start()
     {
@@ -55,8 +57,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!canMove) return;
         MovePlayer();
-        HandleRunAudio(); // Audio-Zustandsprüfung
-        anim.SetFloat("Speed", Math.Abs(rb.linearVelocity.magnitude));
+        HandleRunAudio();
+        float animationSpeed = 0;
+        if (moveInput != Vector2.zero) animationSpeed = 3;
+        if (moveInput != Vector2.zero && isRunButtonPressed) animationSpeed = 4;
+
+        anim.SetFloat("Speed", Math.Abs(animationSpeed));
     }
 
     void MovePlayer()
@@ -68,7 +74,10 @@ public class PlayerMovement : MonoBehaviour
         var weight = GetComponent<Weight>();
         if (weight != null) speed *= weight.GetSpeedMultiplier();
 
-        rb.linearVelocity = moveInput * speed;
+        if (!isPickingUp)
+            rb.linearVelocity = moveInput * speed;
+        else
+            rb.linearVelocity = Vector2.zero;
 
         FlipRender();
     }

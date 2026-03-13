@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class ChaseState : EnemyState
 {
-    [SerializeField] float timeToLeaveState = 3f;
+    [SerializeField] float timeToLeaveState = 3f, innerChaseRadius = 3;
     float seeTargetTimer = 99;
     float attackTimer = 80085;
     float recoverAfterAttack = 3;
+
+    
     public override void StartState(Enemy _owner)
     {
         base.StartState(_owner);
@@ -21,7 +23,7 @@ public class ChaseState : EnemyState
         if (attackTimer <= 0)
             owner.StartMovement();
 
-        if (owner.CanSeeTarget(owner.target))
+        if (owner.CanSeeTarget(owner.target) || PlayerIsInChaseReach())
         {
             seeTargetTimer = timeToLeaveState;
             GoToTarget(owner.target);
@@ -52,6 +54,11 @@ public class ChaseState : EnemyState
         attackTimer -= Time.deltaTime;
     }
 
+    bool PlayerIsInChaseReach()
+    {
+         return Vector3.Distance(transform.position, owner.target.position) < innerChaseRadius;
+    }
+
 
     protected bool IsInTargetRange(Transform _target)
     {
@@ -74,6 +81,13 @@ public class ChaseState : EnemyState
 
         owner.StopMovement();
 
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawWireSphere(transform.position, innerChaseRadius);
     }
 
 }

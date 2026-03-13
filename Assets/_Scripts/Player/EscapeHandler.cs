@@ -67,7 +67,7 @@ public class EscapeHandler : MonoBehaviour
 
         if (timer <= 0)
         {
-            StartCoroutine(TriggerGameOver());
+            GameOver();
             return;
         }
 
@@ -80,14 +80,31 @@ public class EscapeHandler : MonoBehaviour
             }
             else
             {
-                StartCoroutine(TriggerGameOver());
+                GameOver();
             }
         }
     }
 
+    public void GameOver()
+    {
+        StartCoroutine(TriggerGameOver());
+    }
+
+    public void GameOverInstant()
+    {
+        StartCoroutine(TriggerGameOver());
+        FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
+        StopQTE(false);
+        if (GameOverManager.Instance != null)
+        {
+            GameOverManager.Instance.ShowGameOverScreen();
+        }
+    }
+
+
     IEnumerator TriggerGameOver()
     {
-        if(attackingEnemy != null) attackingEnemy.PlayAttackAnimation();
+        if (attackingEnemy != null) attackingEnemy.PlayAttackAnimation();
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         StopQTE(false);
 
