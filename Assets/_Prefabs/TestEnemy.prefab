@@ -56,7 +56,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128
-  detectionRange: 5.5
+  detectionRange: 7.55
   attackRange: 0.5
   target: {fileID: 0}
   timeToUpdate: 0.1
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1356007567
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7146997271069055463, guid: 269135a29091ba44f8303099b7391282, type: 3}

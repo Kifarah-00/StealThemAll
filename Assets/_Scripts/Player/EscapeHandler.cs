@@ -108,7 +108,7 @@ public class EscapeHandler : MonoBehaviour
         FindFirstObjectByType<PlayerMovement>().PlayCaughtAnimation();
         StopQTE(false);
 
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(3);
 
         if (GameOverManager.Instance != null)
         {
