@@ -1022,12 +1022,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Armando - Implementation Audiosystem, Planning Gamedesign\r\n\r\nPhil
     Kohut - Music, SFX, Composing\r\n\r\nMohammad Tazbiev \u200B- Programming, Implementation
-    Animations in Unity\r\n\r\nDanny Simsek - Programming, Planning\r\n\r\nMarlin
-    Peltzer - Game Design, 2D Art, 2D Animations\r\n\r\nSara - 2D Art\r\n\r\nHejin
-    - 2D Art"
+    Animations in Unity, Map Building\r\n\r\nDanny Simsek - Programming, Planning\r\n\r\nMerlin
+    Peltzer - Game Design, 2D Art, 2D Animations\r\n\r\nSara K\xF6kl\xFCkaya - 2D
+    Art\r\n\r\nHejin Mohammed - 2D Art"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2f39ba2bde4167347b166a366682b1a6, type: 2}
+  m_sharedMaterial: {fileID: 4353370958737755766, guid: 2f39ba2bde4167347b166a366682b1a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 56
+  m_fontSizeBase: 56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1996,8 +1996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.3, y: 165.8}
-  m_SizeDelta: {x: 200, y: 125}
+  m_AnchoredPosition: {x: 10.2, y: 162.39}
+  m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045028863
 MonoBehaviour:
