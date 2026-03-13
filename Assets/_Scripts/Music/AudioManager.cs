@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSound[] sounds;
     public static AudioManager instance;
-    bool mute = false;
 
 
     void Awake()

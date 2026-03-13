@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour
 
     void MarkPlayerAsTarget()
     {
+        AudioManager.instance.Play("NPCAlarm");
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null) target = player.transform;
     }

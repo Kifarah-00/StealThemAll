@@ -1,9 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+
+    [SerializeField] TMP_Text highScoreText;
 
     private void Awake()
     {
@@ -26,13 +29,27 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         UpdateUI();
+        SceneManager.sceneLoaded += ShowHighScore;
     }
+
+    void OnDisable()
+    {
+         SceneManager.sceneLoaded -= ShowHighScore;
+    }
+
 
     public static void SetNewHighscore(int newScore)
     {
         if (newScore > HighScore)
             HighScore = newScore;
     }
+
+    void ShowHighScore(Scene scene, LoadSceneMode mode)
+    {
+        if (highScoreText == null) return;
+        highScoreText.text = $"HIGHSCORE: {ScoreManager.HighScore}";
+    }
+
 
     public void ChangeScore(int amount)
     {

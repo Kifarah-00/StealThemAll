@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: MenuMusic
     clip: {fileID: 8300000, guid: 8764ce849bdbc68489f0b0d3dc765dce, type: 3}
-    volume: 0.15
+    volume: 0.02
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: RunSound
-    clip: {fileID: 8300000, guid: 45eca65ee8724404dbdd8c49dbd54a10, type: 3}
+    clip: {fileID: 8300000, guid: 77e0da6b902434244b626ccda16a4e40, type: 3}
     volume: 0.15
     pitch: 1
     loop: 1
@@ -71,6 +71,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GameWon
     clip: {fileID: 8300000, guid: 058f5beeeb686d54f831b41a7eea1452, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NPCAlarm
+    clip: {fileID: 8300000, guid: 291ec36fd5b159447ab5304ca72f73f4, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GotHit
+    clip: {fileID: 8300000, guid: d2a39a9c91bead0449e4ce3b41c1f47e, type: 3}
     volume: 0.15
     pitch: 1
     loop: 0

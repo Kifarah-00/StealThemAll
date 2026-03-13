@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         HandleRunAudio();
         float animationSpeed = 0;
         if (moveInput != Vector2.zero) animationSpeed = 3;
-        if (moveInput != Vector2.zero && isRunButtonPressed) animationSpeed = 4;
+        if (moveInput != Vector2.zero && isRunButtonPressed && !playerStamina.IsExhausted) animationSpeed = 4;
 
         anim.SetFloat("Speed", Math.Abs(animationSpeed));
     }
