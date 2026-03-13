@@ -19,7 +19,7 @@ public class IdleState : EnemyState
         if (turnTrigger)
         {
             //FLIP SIGHT    
-            owner.FlipSprite(!GetComponentInChildren<SpriteRenderer>().flipX);
+            owner.TurnToRight();
 
             turnTrigger = false;
         }

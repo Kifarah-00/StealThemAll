@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isPickingUp)
             rb.linearVelocity = moveInput * speed;
-            else
+        else
             rb.linearVelocity = Vector2.zero;
 
         FlipRender();

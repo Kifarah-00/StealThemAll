@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemySight sight;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator anim;
-    
+
     private AIPath aiPath;
     float updateTimer = 99;
 
@@ -73,10 +73,10 @@ public class Enemy : MonoBehaviour
 
         // Geschwindigkeit für den Animator berechnen
         float currentSpeed = aiPath.velocity.magnitude;
-        
+
         // Setze einen Float für "Speed" (gut für Übergänge)
         anim.SetFloat("Speed", currentSpeed);
-        
+
         // Setze den Bool "IsMoving", falls du diesen beibehalten willst
         anim.SetBool("IsMoving", currentSpeed > 0.1f);
     }
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("Hurt");
         }
     }
-    
+
     public EnemyState IdleState()
     {
         return GetComponent<IdleState>();
@@ -112,30 +112,29 @@ public class Enemy : MonoBehaviour
     void FlipSprite()
     {
         Vector2 direction = aiPath.desiredVelocity;
-        
+
         if (direction.x < -0.1f)
         {
             spriteRenderer.flipX = true;
-            FlipSight(rightSide: false);
+            FlipSight(rightSide: true);
         }
         else if (direction.x > 0.1f)
         {
             spriteRenderer.flipX = false;
-            FlipSight(rightSide: true);
+            FlipSight(rightSide: false);
         }
     }
 
-    // Überladene Methode für manuelle Flips aus States heraus
-    public void FlipSprite(bool rightSide)
+    public void TurnToRight()
     {
-        spriteRenderer.flipX = !rightSide; // Da flipX true links bedeutet, wenn das Sprite nach rechts schaut
-        FlipSight(rightSide);
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+        FlipSight(spriteRenderer.flipX);
     }
 
     void FlipSight(bool rightSide)
     {
         if (sight == null) return;
-        sight.transform.up = rightSide ? Vector2.right : Vector2.left;
+        sight.transform.up = rightSide ? Vector2.left : Vector2.right;
     }
 
     public void StopMovement()
@@ -147,7 +146,7 @@ public class Enemy : MonoBehaviour
 
     public void StartMovement()
     {
-        if(currentState != null)
+        if (currentState != null)
             aiPath.maxSpeed = currentState.moveSpeed;
     }
 
@@ -159,9 +158,9 @@ public class Enemy : MonoBehaviour
     void MarkPlayerAsTarget()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        if(player != null) target = player.transform;
+        if (player != null) target = player.transform;
     }
-    
+
     [ContextMenu("PLAYER PICK UP SIMULATION")]
     public void OnPlayerPickUpParcel()
     {
