@@ -86,6 +86,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
         if (interactionButtonTimer >= currentParcel.timeToCollect)
         {
             anim.SetBool("IsPicking", false);
+             FindFirstObjectByType<PlayerMovement>().isPickingUp = false;
             currentParcel.CollectParcel();
             onParcelPicked?.Invoke();
             ResetInteractionTimer();
@@ -104,6 +105,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
         if (currentParcel == null) return;
         isInteracting = true;
         anim.SetBool("IsPicking", true);
+        FindFirstObjectByType<PlayerMovement>().isPickingUp = true;
     }
 
     void OnReleaseInteract(InputAction.CallbackContext ctx)
@@ -111,6 +113,7 @@ public class ParcelInteractionTrigger : MonoBehaviour
         isInteracting = false;
         interactionButtonTimer = 0;
         anim.SetBool("IsPicking", false);
+        FindFirstObjectByType<PlayerMovement>().isPickingUp = false;
     }
 
     void UpdateSliderUI(float _pickUpTime)

@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7534445273630752739}
   - component: {fileID: 2936780394995268042}
-  - component: {fileID: 3948733758466525171}
   - component: {fileID: 4452132431617818817}
   - component: {fileID: 8993497783092154592}
+  - component: {fileID: 3948733758466525171}
   - component: {fileID: 9075739420054094365}
   - component: {fileID: 5226491929599565017}
+  - component: {fileID: 4582677792968356697}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -62,34 +63,6 @@ MonoBehaviour:
   sight: {fileID: 2484046130007914935}
   spriteRenderer: {fileID: 5162703545592757692}
   anim: {fileID: 5171313202863015637}
---- !u!114 &3948733758466525171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923603365809881741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!114 &4452132431617818817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,8 +90,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbba8b6fbb1d34a42bd6d44e4d860ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaseState
-  moveSpeed: 3
+  moveSpeed: 2
   timeToLeaveState: 3
+  innerChaseRadius: 3
+--- !u!114 &3948733758466525171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923603365809881741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: 1
 --- !u!114 &9075739420054094365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,11 +157,11 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &5226491929599565017
 MonoBehaviour:
@@ -175,6 +177,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WanderPathState
   moveSpeed: 1
   pathParent: {fileID: 0}
+--- !u!61 &4582677792968356697
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923603365809881741}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.08382988, y: -0.06496823}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.11978531, y: 0.4341476}
+  m_EdgeRadius: 0
 --- !u!1 &2472431673419197137
 GameObject:
   m_ObjectHideFlags: 0
