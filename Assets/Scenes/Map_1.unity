@@ -12283,6 +12283,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3564670285875735530, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -32806741
+      objectReference: {fileID: 0}
     - target: {fileID: 3654025811746117108, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -12446,6 +12450,10 @@ PrefabInstance:
     - target: {fileID: 8396037876956776891, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517116168476440983, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -32806741
       objectReference: {fileID: 0}
     - target: {fileID: 8654507964757315009, guid: c704ee7a995f2604ebc76afa3dbd1006, type: 3}
       propertyPath: timeToPress
