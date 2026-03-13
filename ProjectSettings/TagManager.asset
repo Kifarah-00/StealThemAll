@@ -53,11 +53,11 @@ TagManager:
   - name: WalkInfront
     uniqueID: 2667053705
     locked: 0
-  - name: DecoWalkInfront
-    uniqueID: 2215959133
-    locked: 0
   - name: Player
     uniqueID: 2938959729
+    locked: 0
+  - name: DecoWalkBehind
+    uniqueID: 2215959133
     locked: 0
   - name: WalkBehind
     uniqueID: 1566676513
