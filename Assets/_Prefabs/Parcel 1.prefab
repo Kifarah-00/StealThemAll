@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parcel
   scoreAmount: 10
-  weight: 10
+  weight: 5
   timeToCollect: 1.5
 --- !u!50 &471191515104261569
 Rigidbody2D:
