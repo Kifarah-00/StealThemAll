@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 502
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,8 +149,8 @@ TextureImporter:
       name: STA-Logo_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 64
+        x: 40
+        y: 62
         width: 149
         height: 112
       alignment: 0
@@ -171,8 +171,8 @@ TextureImporter:
       name: STA-Logo_1
       rect:
         serializedVersion: 2
-        x: 154
-        y: 64
+        x: 191
+        y: 62
         width: 26
         height: 41
       alignment: 0
@@ -193,8 +193,8 @@ TextureImporter:
       name: STA-Logo_2
       rect:
         serializedVersion: 2
-        x: 158
-        y: 105
+        x: 195
+        y: 103
         width: 29
         height: 41
       alignment: 0
@@ -215,8 +215,8 @@ TextureImporter:
       name: STA-Logo_3
       rect:
         serializedVersion: 2
-        x: 181
-        y: 64
+        x: 218
+        y: 62
         width: 37
         height: 41
       alignment: 0
@@ -237,8 +237,8 @@ TextureImporter:
       name: STA-Logo_4
       rect:
         serializedVersion: 2
-        x: 188
-        y: 105
+        x: 225
+        y: 103
         width: 26
         height: 41
       alignment: 0
@@ -259,8 +259,8 @@ TextureImporter:
       name: STA-Logo_5
       rect:
         serializedVersion: 2
-        x: 215
-        y: 105
+        x: 252
+        y: 103
         width: 26
         height: 41
       alignment: 0
@@ -281,8 +281,8 @@ TextureImporter:
       name: STA-Logo_6
       rect:
         serializedVersion: 2
-        x: 219
-        y: 64
+        x: 256
+        y: 62
         width: 29
         height: 41
       alignment: 0
@@ -303,8 +303,8 @@ TextureImporter:
       name: STA-Logo_7
       rect:
         serializedVersion: 2
-        x: 242
-        y: 105
+        x: 279
+        y: 103
         width: 29
         height: 41
       alignment: 0
@@ -325,8 +325,8 @@ TextureImporter:
       name: STA-Logo_8
       rect:
         serializedVersion: 2
-        x: 250
-        y: 64
+        x: 287
+        y: 62
         width: 22
         height: 41
       alignment: 0
@@ -347,8 +347,8 @@ TextureImporter:
       name: STA-Logo_9
       rect:
         serializedVersion: 2
-        x: 273
-        y: 105
+        x: 310
+        y: 103
         width: 22
         height: 41
       alignment: 0
@@ -369,8 +369,8 @@ TextureImporter:
       name: STA-Logo_10
       rect:
         serializedVersion: 2
-        x: 273
-        y: 64
+        x: 310
+        y: 62
         width: 22
         height: 41
       alignment: 0
@@ -391,8 +391,8 @@ TextureImporter:
       name: STA-Logo_11
       rect:
         serializedVersion: 2
-        x: 292
-        y: 64
+        x: 329
+        y: 62
         width: 142
         height: 134
       alignment: 0
